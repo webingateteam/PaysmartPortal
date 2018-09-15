@@ -175,6 +175,8 @@
     <Content Include="UI\HireVehicle.html" />
     <Content Include="UI\images\404-style1.png" />
     <Content Include="UI\images\Ambulanc.png" />
+    <Content Include="UI\images\audi_PNG1771.png" />
+    <Content Include="UI\images\auto.jpg" />
     <Content Include="UI\images\breakdown2.jpg" />
     <Content Include="UI\images\bus-header-2.png" />
     <Content Include="UI\images\busimages\acbus.jpg" />
@@ -1848,6 +1850,7 @@
     <Content Include="UI\js\angular.js" />
     <Content Include="UI\js\BookTicket.js" />
     <Content Include="UI\js\bootstrap.js" />
+    <Content Include="UI\js\bootstrap.min.css" />
     <Content Include="UI\js\bootstrap.min.js" />
     <Content Include="UI\js\bxslider.min.js" />
     <Content Include="UI\js\custom.js" />
@@ -1869,7 +1872,6 @@
     <Content Include="UI\Registration.html" />
     <Content Include="UI\Search.html" />
     <Content Include="UI\TicketCheckout.html" />
-    <Content Include="UI\TicketPage.html" />
     <Content Include="UI\Renewal.html" />
     <Content Include="UI\Schedules.html" />
     <Content Include="UI\Search.html" />

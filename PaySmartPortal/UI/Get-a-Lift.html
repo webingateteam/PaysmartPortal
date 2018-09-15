@@ -349,225 +349,320 @@
             </div>
         </header>
 
-        <div role="main" class="main">
+        <div role="main" class="main" style="border-top:1px solid grey;">
             <!--Start Container-->
-            <div class="container" style="padding-top:10px">
-                <h2 style="text-align:center">Get-a-lyft</h2>
-                <div class="row">
-                    <div class="col-md-6" style="padding-top:10px;">
-                        <form>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <label for="ex1">From</label>
-                                    <!--<input class="form-control" id="ex1" type="text" placeholder="Current location" ng-model="directions.origin">-->
+            
+            <div class="container-fluid">
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-4 p-none" style="display:inline-block; padding:0px; margin:0px;">
+                        <section>
+                            <div class="col-md-10" style="text-align:center;">
+                                <h4 class="mb-none" style="color:dodgerblue;font-family:Arial;font-size:28px;">Get A Lift</h4>
+                            </div>
 
-                                    <input vs-google-autocomplete
-                                           vs-autocomplete-validator
-                                           ng-model="pickupPoint.place.name"
-                                           vs-place="pickupPoint.place"
-                                           vs-place-id="pickupPoint.components.placeId"
-                                           vs-street-number="pickupPoint.components.streetNumber"
-                                           vs-street="pickupPoint.components.street"
-                                           vs-city="pickupPoint.components.city"
-                                           vs-state="pickupPoint.components.state"
-                                           vs-country-short="pickupPoint.components.countryCode"
-                                           vs-country="pickupPoint.components.country"
-                                           vs-district="pickupPoint.components.district"
-                                           vs-post-code="pickupPoint.components.postCode"
-                                           vs-latitude="pickupPoint.components.location.lat"
-                                           vs-longitude="pickupPoint.components.location.long"
-                                           type="text"
-                                           name="pickupPoint"
-                                           id="pickupPoint"
-                                           class="form-control"
-                                           placeholder="Enter any address" value="{{pickupPoint.name}}" />
-
+                            <div>
+                                <div class="row">
+                                    <div class="col-xs-6" style="margin-left:90px;">
+                                        <div class="col-xs-3" style="display:inline-block; padding:0px; margin:0px;">
+                                            From
+                                        </div>
+                                        <div class="col-xs-9" style="display:inline-block; padding:0px; margin:0px;">
+                                            <input vs-google-autocomplete
+                                                   vs-autocomplete-validator
+                                                   ng-model="pickupPoint.place.name"
+                                                   vs-place="pickupPoint.place"
+                                                   vs-place-id="pickupPoint.components.placeId"
+                                                   vs-street-number="pickupPoint.components.streetNumber"
+                                                   vs-street="pickupPoint.components.street"
+                                                   vs-city="pickupPoint.components.city"
+                                                   vs-state="pickupPoint.components.state"
+                                                   vs-country-short="pickupPoint.components.countryCode"
+                                                   vs-country="pickupPoint.components.country"
+                                                   vs-district="pickupPoint.components.district"
+                                                   vs-post-code="pickupPoint.components.postCode"
+                                                   vs-latitude="pickupPoint.components.location.lat"
+                                                   vs-longitude="pickupPoint.components.location.long"
+                                                   type="text"
+                                                   name="pickupPoint"
+                                                   id="pickupPoint"
+                                                   class="form-control"
+                                                   placeholder="Enter any address" value="{{pickupPoint.name}}" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-xs-6">
-                                    <label for="ex2">To</label>
-                                    <!--<input class="form-control" id="ex2" type="text" placeholder="Enter drop point" ng-model="directions.destination">-->
-
-                                    <input vs-google-autocomplete
-                                           vs-autocomplete-validator
-                                           ng-model="dropPoint.place.name"
-                                           vs-place="dropPoint.place"
-                                           vs-place-id="dropPoint.components.placeId"
-                                           vs-street-number="dropPoint.components.streetNumber"
-                                           vs-street="dropPoint.components.street"
-                                           vs-city="dropPoint.components.city"
-                                           vs-state="dropPoint.components.state"
-                                           vs-country-short="dropPoint.components.countryCode"
-                                           vs-country="dropPoint.components.country"
-                                           vs-district="dropPoint.components.district"
-                                           vs-post-code="dropPoint.components.postCode"
-                                           vs-latitude="dropPoint.components.location.lat"
-                                           vs-longitude="dropPoint.components.location.long"
-                                           type="text"
-                                           name="dropPoint"
-                                           id="dropPoint"
-                                           class="form-control"
-                                           placeholder="Enter any address" value="{{dropPoint.name}}" />
+                                <div class="row ml mtop" style="margin-top:25px;">
+                                    <div class="col-xs-6" style="margin-left:73px;">
+                                        <div class="col-xs-3" style="display:inline-block; padding:0px; margin:0px;">
+                                            To
+                                        </div>
+                                        <div class="col-xs-9" style="display:inline-block; padding:0px; margin:0px;">
+                                            <input vs-google-autocomplete
+                                                   vs-autocomplete-validator
+                                                   ng-model="dropPoint.place.name"
+                                                   vs-place="dropPoint.place"
+                                                   vs-place-id="dropPoint.components.placeId"
+                                                   vs-street-number="dropPoint.components.streetNumber"
+                                                   vs-street="dropPoint.components.street"
+                                                   vs-city="dropPoint.components.city"
+                                                   vs-state="dropPoint.components.state"
+                                                   vs-country-short="dropPoint.components.countryCode"
+                                                   vs-country="dropPoint.components.country"
+                                                   vs-district="dropPoint.components.district"
+                                                   vs-post-code="dropPoint.components.postCode"
+                                                   vs-latitude="dropPoint.components.location.lat"
+                                                   vs-longitude="dropPoint.components.location.long"
+                                                   type="text"
+                                                   name="dropPoint"
+                                                   id="dropPoint"
+                                                   class="form-control"
+                                                   placeholder="Enter any address" value="{{dropPoint.name}}" />
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-xs-12">
+                <label for="ex2">Distance</label>
+                <input class="form-control" id="destination" type="text" placeholder="Enter drop point" ng-model="distance.value" ng-change="inputcred();">
+            </div>-->
                                 </div>
-                                <!--<div class="col-xs-12">
-                            <label for="ex2">Distance</label>
-                            <input class="form-control" id="destination" type="text" placeholder="Enter drop point" ng-model="distance.value" ng-change="inputcred();">
-                        </div>-->
 
-                                <button type="submit" class="btn btn-primary active" style="margin-top:15px;margin-left:160px" ng-click="getDirections()">Submit</button>
-                            </div>                           
-                        </form>
-                        <hr>
+                                <!--<div class="row" style="margin-left:120px;margin-top:25px;">
+                <button type="submit" class="btn btn-primary active" ng-click="getDirections()">Submit</button>
+            </div>-->
+                                <div class="main-and-aside r" style="display:none;">
+                                    <div class="main">
+                                        <div class="small-medium" data-set="widget"></div>
 
-                        <div class="main-and-aside r" ng-show="distval!=null">
-                            <div class="main">
-                                <div class="small-medium" data-set="widget"></div>
+                                        <div class="clearfix"></div>
+                                        <div class="module-grid clearfix">
+                                            <div>
+                                                <!--<h2 class="active">Amount</h2>-->
 
-                                <div class="clearfix"></div>
-                                <div class="module-grid clearfix">
-                                    <div>
-                                        <!--<h2 class="active">Amount</h2>-->
+                                                <div class="panel col-md-10">
+                                                    <h4 class="panel-title">
+                                                        <a href="#" class="collapsed">Distance <div style="text-align:right;margin-top:-25px;">{{distval}}</div></a><br>
+                                                        <a href="#" class="collapsed" style="margin-top:10px">Fares <div style="text-align:right;" ng-repeat="p in pricing">{{p.Price}}</div></a>
 
-                                        <div class="panel col-md-10">
-                                            <h4 class="panel-title">
-                                                <a href="#" class="collapsed">Distance <div style="text-align:right;margin-top:-25px;">{{distval}}</div></a><br>
-                                                <a href="#" class="collapsed" style="margin-top:10px">Fares <div style="text-align:right;" ng-repeat="p in pricing">{{p.Price}}</div></a>
+                                                    </h4>
 
-                                            </h4>
+                                                </div>
+
+
+
+                                            </div>
 
                                         </div>
-
-
-
                                     </div>
 
                                 </div>
+
+                                <!--To Show Grid-->
+                                <div class="container">
+                                    <span class="ml"> Available Rides</span>
+                                    <div style="border:1px solid grey;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <!--<img style="width:10px;height:60px;" src="images/audi_PNG1771.png" />-->
+                                                        <img style="width:30px;height:30px;" src="images/auto.jpg" /><br />
+                                                        20 min
+                                                    </td>
+                                                    <td class="text-left">
+                                                        <strong style="color:black;font-family:Arial">Auto</strong> <br />
+                                                        Get an Auto at your door step
+                                                    </td>
+                                                    <td class="text-center" style="color:black;"><b>Rs.31-Rs.33</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><hr /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <!--<img style="width:10px;height:60px;" src="images/audi_PNG1771.png" />-->
+                                                        <img style="width:30px;height:30px;" src="images/auto.jpg" /><br />
+                                                        20 min
+                                                    </td>
+                                                    <td class="text-left">
+                                                        <strong style="color:black;font-family:Arial">Auto</strong><br />
+                                                        Get an Auto at your door step
+                                                    </td>
+                                                    <td class="text-center"><div style="margin-top:-25px;color:black;"><b>Rs.31-Rs.33</b></div></td>
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--End Grid-->
                             </div>
+                            <!--Start Select type Details-->
 
-                        </div>
-                        <div class="aside" ng-show="distval!=null">
-                            <div class="large" data-set="widget">
-                                <div class="moving-source-order">
-                                    <div class="widget-wrapper">
-                                        <div class="expandable-box">
-                                            <div class="content">
-                                                <div class="always-visible widget-heading">
-                                                    <div class="controls"> </div>
-                                                    <h2 class="active">Confirm Booking</h2>
-                                                </div>
-                                                <div class="panel">
-                                                    <form>
-                                                        <div class="form-group row">
-                                                            <div class="col-xs-6">
-                                                                <label for="ex12">Payment Type</label>
+                            <div>
+                                <div class="row">
+                                    <div class="col-xs-6" style="margin-left:90px;">
+                                        <div class="col-xs-3" style="display:inline-block; padding:0px; margin:0px;">
+                                            From
+                                        </div>
+                                        <div class="col-xs-9" style="display:inline-block; padding:0px; margin:0px;">
+                                            <input vs-google-autocomplete
+                                                   vs-autocomplete-validator
+                                                   ng-model="pickupPoint.place.name"
+                                                   vs-place="pickupPoint.place"
+                                                   vs-place-id="pickupPoint.components.placeId"
+                                                   vs-street-number="pickupPoint.components.streetNumber"
+                                                   vs-street="pickupPoint.components.street"
+                                                   vs-city="pickupPoint.components.city"
+                                                   vs-state="pickupPoint.components.state"
+                                                   vs-country-short="pickupPoint.components.countryCode"
+                                                   vs-country="pickupPoint.components.country"
+                                                   vs-district="pickupPoint.components.district"
+                                                   vs-post-code="pickupPoint.components.postCode"
+                                                   vs-latitude="pickupPoint.components.location.lat"
+                                                   vs-longitude="pickupPoint.components.location.long"
+                                                   type="text"
+                                                   name="pickupPoint"
+                                                   id="pickupPoint"
+                                                   class="form-control"
+                                                   placeholder="Enter any address" value="{{pickupPoint.name}}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ml mtop" style="margin-top:25px;">
+                                    <div class="col-xs-6" style="margin-left:73px;">
+                                        <div class="col-xs-3" style="display:inline-block; padding:0px; margin:0px;">
+                                            To
+                                        </div>
+                                        <div class="col-xs-9" style="display:inline-block; padding:0px; margin:0px;">
+                                            <input vs-google-autocomplete
+                                                   vs-autocomplete-validator
+                                                   ng-model="dropPoint.place.name"
+                                                   vs-place="dropPoint.place"
+                                                   vs-place-id="dropPoint.components.placeId"
+                                                   vs-street-number="dropPoint.components.streetNumber"
+                                                   vs-street="dropPoint.components.street"
+                                                   vs-city="dropPoint.components.city"
+                                                   vs-state="dropPoint.components.state"
+                                                   vs-country-short="dropPoint.components.countryCode"
+                                                   vs-country="dropPoint.components.country"
+                                                   vs-district="dropPoint.components.district"
+                                                   vs-post-code="dropPoint.components.postCode"
+                                                   vs-latitude="dropPoint.components.location.lat"
+                                                   vs-longitude="dropPoint.components.location.long"
+                                                   type="text"
+                                                   name="dropPoint"
+                                                   id="dropPoint"
+                                                   class="form-control"
+                                                   placeholder="Enter any address" value="{{dropPoint.name}}" />
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-xs-12">
+                <label for="ex2">Distance</label>
+                <input class="form-control" id="destination" type="text" placeholder="Enter drop point" ng-model="distance.value" ng-change="inputcred();">
+            </div>-->
+                                </div>
+                                <div class="row" style="margin-top:15px;">
+                                    <div class="col-xs-6" style="margin-left:100px;">
+                                        Fare
+                                    </div>
+                                    <div class="col-xs-6" style="text-align:center;margin-left:10px;">
+                                        <b style="color:black;">&nbsp;<span style="font-size:16px;">&#x20b9;31 - &#x20b9;32</span></b><br />Total Fare
+                                    </div>
+                                </div>
+                                <div class="row well" style="margin-top:15px;">
+                                    <div class="col-xs-6" style="margin-left:70px;">
+                                        Distance
+                                    </div>
+                                    <div class="col-xs-6" style="text-align:center;margin-left:10px;">
+                                        <b style="color:black;">&nbsp;<span style="font-size:16px;">2</span></b>&nbsp;KM.
+                                    </div>
+                                </div>
+                                <div class="row mtop" style="margin-left:115px;margin-top:15px;">
+                                    <button class="btn btn-primary" style="width:100px;text-align:center;">Continue</button>
+                                </div>
+                            </div>
+                            <!--End Select type details-->
 
-                                                                <select class="form-control" ng-options="ct.Name for ct in initdata.Table2 track by ct.Id" ng-model="ct">
-                                                                    <option value="">Select</option>
-                                                                </select>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </form>
-                                                </div>
-
-                                                <div class="toggle-container">
-                                                    <form>
-                                                        <div class="form-group row" ng-model="book">
-                                                            <div class="col-xs-6">
-                                                                <label for="ex13">Enter Mobile Number</label>
-                                                                <input class="form-control input-medium bfh-phone" id="ex13" type="text" data-format="+1 (ddd) ddd-dddd" placeholder="Enter Mobile Number" ng-model="book.Mobilenumber">
-                                                            </div>
-                                                            <!--<div class="col-xs-3">
-                                                        <label for="ex2">To</label>
-                                                        <input class="form-control" id="ex2" type="text">
-                                                    </div>-->
-                                                            <button type="submit" class="btn-medium green" style="margin-top:23px" value="Show Hide DIV" ng-click="booking(book)">Submit</button>
-
-                                                        </div>
-                                                    </form>
-
-
-
-
-
-                                                    <div class="panel" ng-show="bdetails!=null">
+                            <!-- Start Confirm Detais-->
+                            <div class="aside">
+                                <div class="large" data-set="widget">
+                                    <div class="moving-source-order">
+                                        <div class="widget-wrapper">
+                                            <div class="expandable-box">
+                                                <div class="content mtop" style="margin-left:100px;">
+                                                    <div class="always-visible widget-heading">
+                                                        <div class="controls"> </div>
+                                                        <h2 class="active">Confirm Booking</h2>
+                                                    </div>
+                                                    <div class="panel">
                                                         <form>
                                                             <div class="form-group row">
                                                                 <div class="col-xs-6">
-                                                                    <label for="ex12">Enter OTP</label>
-                                                                    <input class="form-control" id="ex12" type="text" placeholder="OTP">
+                                                                    <label for="ex12">Payment Type</label>
+
+                                                                    <select class="form-control" ng-options="ct.Name for ct in initdata.Table2 track by ct.Id" ng-model="ct">
+                                                                        <option value="">Select</option>
+                                                                    </select>
+
                                                                 </div>
 
-                                                                <button type="submit" class="btn-medium green" style="margin-top:23px" ng-click="Motpverifying()">Submit</button>
                                                             </div>
                                                         </form>
-
                                                     </div>
 
+                                                    <div class="toggle-container">
+                                                        <form>
+                                                            <div class="form-group row" ng-model="book">
+                                                                <div class="col-xs-6">
+                                                                    <label for="ex13">Enter Mobile Number</label>
+                                                                    <input class="form-control input-medium bfh-phone" id="ex13" type="text" data-format="+1 (ddd) ddd-dddd" placeholder="Enter Mobile Number" ng-model="book.Mobilenumber">
+                                                                </div>
+                                                                <!--<div class="col-xs-3">
+                                            <label for="ex2">To</label>
+                                            <input class="form-control" id="ex2" type="text">
+                                        </div>-->
+                                                                <div class="col-xs-6">
+                                                                    <button type="submit" class="btn btn-primary" style="height:39px;margin-top:28px;margin-left:10px;" value="Show Hide DIV" ng-click="booking(book)">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                        <div class="panel">
+                                                            <form>
+                                                                <div class="form-group row">
+                                                                    <div class="col-xs-6">
+                                                                        <label for="ex12">Enter OTP</label>
+                                                                        <input class="form-control" id="ex12" type="text" placeholder="OTP">
+                                                                    </div>
 
-
-
-
-                                                    <div class="panel">
-
-
-                                                        <button type="submit" class="btn-medium green" style="margin:5px 0px 10px 60px">Go TO Payment</button>
+                                                                    <div class="col-xs-6">
+                                                                        <button type="submit" class="btn btn-primary" style="height:39px;margin-top:28px;margin-left:10px;" value="Show Hide DIV"ng-click="Motpverifying()">Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="panel">
+                                                            <!--<button type="submit" class="btn btn-outline-success" style="margin:5px 0px 10px 60px">Go TO Payment</button>-->
+                                                        </div>
                                                     </div>
-
-
                                                 </div>
-
-
-
-
-
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
+                            <!-- End Confirm Detais-->
+                        
+                        </section>
                     </div>
-                    <!--map start-->
-                    <div id="full-width-content" class="col-md-6">
-
-                        <div class="main well">
-                            <div class="large" data-set="status-map">
-                                <div class="moving-source-order">
-                                    <div class="status-map-wrapper map-wrapper status-page">
-                                        <div class="tab-content">
-
-
-                                            <div style='overflow: hidden; height: 400px; width: 100%;'>
-                                                <div id='map' style='height: 400px; width:100% ;'>
-
-                                                </div>
-                                            </div>
-                                            <div id="directionsList" ng-show="directions"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--map end-->                      
-
-                            <div class="small-medium" data-set="content"> </div>
-                        </div>
+                    <div class="col-md-8" style="display:inline-block; padding:0px; margin:0px;">
+                        <img src="img/mobile_264416834.jpg" style="height:auto;width:auto;" />
                     </div>
-
                 </div>
-
+            </div>
             </div>
            
         </div>
 
         
-    </div>
-    </div>
 
     <footer class="short" id="footer">
         <div class="container">

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*
 Name: 			theme-elements.css
 Written by: 	Okler Themes - (http://www.okler.net)
@@ -3208,7 +3208,7 @@ html.boxed section.video > div:first-child video {
 
 @media (min-width: 576px) {
 	.modal-dialog {
-		max-width: 600px;
+		max-width: 900px;
 	}
 }
 
