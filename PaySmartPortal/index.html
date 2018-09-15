@@ -74,30 +74,179 @@
                                 <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
                                     <nav class="collapse">
                                         <ul class="nav nav-pills">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <img src="UI/img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                                                    <a class="dropdown-item" href="#"><img src="UI/img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe</a>
+                                                    <a class="dropdown-item" href="#"><img src="UI/img/blank.gif" class="flag flag-es" alt="English" /> Kenya</a>
+                                                    <a class="dropdown-item" href="#"><img src="UI/img/blank.gif" class="flag flag-fr" alt="English" /> South Africa</a>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a class="active" href="index.html">
+                                                    Book Now
+                                                </a>
+                                            </li>
                                             <li class="dropdown">
                                                 <a class="dropdown-item dropdown-toggle" href="#">Partner with Us as</a>
-                                                <ul class="dropdown-menu">
+                                                <ul class="dropdown-menu">                                                    
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Driver</a>
+                                                        <a class="dropdown-item" href="UI/BrandAmbassador.html">Brand Ambassador</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Brand Ambassador</a>
+                                                        <a class="dropdown-item" href="UI/Conductor.html">Business Owner</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Vehicle Owner</a>
+                                                        <a class="dropdown-item" href="UI/DriverRegistration.html">Driver</a>
+                                                    </li>                                                    
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/FleetOwner.html">Fleet Owner</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Fleet Owner</a>
+                                                        <a class="dropdown-item" href="UI/TicketAgent.html">Ticket Agent</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/VehicleOwner.html">Vehicle Owner</a>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="nav">
-                                                <span class="ws-nowrap"><i class="fas fa-phone"></i> (123) 456-789</span>
+                                            <li class="dropdown dropdown-mega dropdown-mega-signin signin" id="headerAccount">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    <i class="fas fa-user"></i> Sign In
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <div class="dropdown-mega-content">
+                                                            <div class="row">
+                                                                <div class="col">
+
+                                                                    <div class="signin-form">
+
+                                                                        <span class="dropdown-mega-sub-title">Sign In</span>
+
+                                                                        <form action="/" id="frmSignIn" method="post">
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <label>Username or E-mail Address</label>
+                                                                                    <input type="text" value="" class="form-control" tabindex="1">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <a class="float-right mt-0 p-0" id="headerRecover" href="#">(Lost Password?)</a>
+                                                                                    <label>Password</label>
+                                                                                    <input type="password" value="" class="form-control" tabindex="2">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col-lg-6 pl-0">
+                                                                                    <span class="remember-box form-check">
+                                                                                        <label class="form-check-label" for="rememberme">
+                                                                                            <input class="form-check-input mr-2" type="checkbox" id="rememberme" name="rememberme">Remember Me
+                                                                                        </label>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="form-group col-lg-6 pr-0">
+                                                                                    <input type="submit" value="Login" class="btn btn-primary float-right mb-3" data-loading-text="Loading...">
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="sign-up-info">Don't have an account yet? <a href="#" id="headerSignUp" class="p-0 m-0 ml-1">Sign Up</a></p>
+
+                                                                    </div>
+
+                                                                    <div class="signup-form">
+                                                                        <span class="dropdown-mega-sub-title">Create Account</span>
+
+                                                                        <form action="/" id="frmSignUp" method="post">
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Country code</label>
+                                                                                    <div class="selector">
+                                                                                        <select class="form-control" ng-options="C.Name for C in Country track by C.Id" ng-model="register.Country">
+                                                                                            <option value="">Select Country</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>User name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Email</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Mobile Number</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Password</label>
+                                                                                    <input type="password" value="" class="form-control">
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Re-enter Password</label>
+                                                                                    <input type="password" value="" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <br />
+                                                                            <!--<span class="mt-3 mb-3 line-thru text-center text-uppercase">
+                                                                                <span>OR</span>
+                                                                            </span>
+                                                                            <div class="mb-1 text-center">
+                                                                                <a class="btn btn-facebook mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-facebook-f"></i></a>
+                                                                                <a class="btn btn-twitter mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-twitter"></i></a>
+                                                                            </div>-->
+
+                                                                            <div class="form-row">
+                                                                                <div class="col-lg-12">
+                                                                                    <input type="submit" value="Create Account" class="btn btn-primary float-right mb-3" data-loading-text="Loading...">
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="log-in-info">Already have an account? <a href="#" id="headerSignIn" class="p-0 m-0 ml-1">Log In</a></p>
+                                                                    </div>
+
+                                                                    <div class="recover-form">
+                                                                        <span class="dropdown-mega-sub-title">Reset My Password</span>
+                                                                        <p>Complete the form below to receive an email with the authorization code needed to reset your password.</p>
+
+                                                                        <form action="/" id="frmResetPassword" method="post">
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <label>E-mail Address</label>
+                                                                                    <input type="text" value="" class="form-control form-control-lg">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <input type="submit" value="Submit" class="btn btn-primary float-right mb-3" data-loading-text="Loading...">
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="log-in-info">Already have an account? <a href="#" id="headerRecoverCancel" class="p-0 m-0 ml-1">Log In</a></p>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </nav>
                                 </div>
-                                <div class="header-search d-none d-md-block">
+                                <!--<div class="header-search d-none d-md-block">
                                     <form id="searchForm" action="page-search-results.html" method="get">
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="q" id="q" placeholder="Search..." required>
@@ -106,14 +255,7 @@
                                             </span>
                                         </div>
                                     </form>
-                                </div>
-                                <nav class="header-nav-top">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item d-none d-sm-block">
-                                            <a class="nav-link" href="UI/Registration.html"><i class="fas fa-angle-right"></i>Sign In/Sign Up</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                </div>-->
                             </div>
 
                             <div class="header-row">
@@ -126,7 +268,7 @@
                                                         Home
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
+                                                <!--<li class="dropdown">
                                                     <a class="dropdown-item dropdown-toggle" href="#">
                                                         Fares/Payments
                                                     </a>
@@ -135,36 +277,23 @@
                                                             <a class="dropdown-item" href="UI/Fares_and_payments.html">Check Fares</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/pages-coming-soon1.html">Recharge</a>
+                                                            <a class="dropdown-item" href="UI/Recharge.html">Recharge</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/refund.html">Refund</a>
+                                                            <a class="dropdown-item" href="UI/Refund.html">Refund</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/pages-coming-soon1.html">Renewals</a>
+                                                            <a class="dropdown-item" href="UI/Renewal.html">Renewals</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/shedules.html">Schedules</a>
+                                                            <a class="dropdown-item" href="UI/Schedules.html">Schedules</a>
                                                         </li>
                                                     </ul>
-                                                </li>
+                                                </li>-->
+                                                
                                                 <li class="dropdown">
                                                     <a class="dropdown-item dropdown-toggle" href="#">
-                                                        Cancel/Modify
-                                                    </a>
-
-                                                    <ul class="dropdown-menu">
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="ui/cancellation.html">Cancel Journey</a>
-                                                        </li>
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="ui/cancellation.html">Cancel/Modify Ticket</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="#">
-                                                        Online Shop
+                                                        Drive with us
                                                     </a>
 
                                                     <ul class="dropdown-menu">
@@ -174,19 +303,49 @@
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="productsshown.html">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Ride with us
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Travel Tickets
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <!--<li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Online Shop
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>-->
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
                                                         Licenses
                                                     </a>
 
                                                     <ul class="dropdown-menu">
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/shortcode-pricing-tables.html">Advertisement Licence</a>
+                                                            <a class="dropdown-item" href="UI/AdvertisementLicense.html">Advertisement Licence</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/shortcode-pricing-tables.html">BT POS Licence</a>
-                                                        </li>
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/cards.html">Cards</a>
+                                                            <a class="dropdown-item" href="UI/Cards.html">Cards</a>
                                                         </li>
                                                         <li class="dropdown">
                                                             <a class="dropdown-item" href="UI/LicensePage.html">Fleet Owner Licence</a>
@@ -198,11 +357,25 @@
                                                 </li>
                                                 <li class="dropdown">
                                                     <a class="dropdown-item dropdown-toggle" href="#">
-                                                        Contact Us
+                                                        Cancel/Modify
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Cancellation.html">Cancel Journey</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Cancellation.html">Cancel/Modify Ticket</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Contact Us/Help
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="contact-us.html">Contact Us</a></li>
-                                                        <li><a class="dropdown-item" href="contact-us-advanced.php">Trouble Ticket/Complaints</a></li>
+                                                        <li><a class="dropdown-item" href="UI/ContactUs.html">Contact Us</a></li>
+                                                        <li><a class="dropdown-item" href="UI/Complaints.html">Trouble Ticket/Complaints</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -228,13 +401,13 @@
 
             <div class="slider-with-overlay">
 
-                <div class="slider-container rev_slider_wrapper" style="height: 660px;">
+                <div class="slider-container rev_slider_wrapper" style="height:660px;">
                     <div id="revolutionSlider" class="slider rev_slider" data-version="5.4.7"
                          data-plugin-revolution-slider data-plugin-options="{'delay': 9000, 'gridwidth': 1170, 'gridheight': 660, 'responsiveLevels': [4096,1200,992,500]}">
                         <ul>
-                            
+
                             <li data-transition="fade">
-                                <img src="UI/img/slides/slide-bg.jpg"
+                                <img src="UI/img/downloads/cab2.png"
                                      alt=""
                                      data-bgposition="center center"
                                      data-bgfit="cover"
@@ -244,13 +417,13 @@
                                      data-x="['550','550','550','570']"
                                      data-y="90"
                                      data-start="3900"
-                                     data-transform_in="x:[-300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
 
                                 <div class="tp-caption top-label"
                                      data-x="['610','610','610','630']"
                                      data-y="80"
                                      data-start="3900"
-                                     data-transform_in="y:[-300%];opacity:0;s:500;">DO YOU NEED A NEW</div>
+                                     data-transform_in="y:[-300%];opacity:0;s:500;">DO YOU NEED A </div>
 
                                 <div class="tp-caption"
                                      data-x="['870','870','870','890']"
@@ -265,14 +438,14 @@
                                      data-whitespace="nowrap"
                                      data-transform_in="y:[100%];s:500;"
                                      data-transform_out="opacity:0;s:500;"
-                                     data-mask_in="x:0px;y:0px;">WEB DESIGN?</div>
+                                     data-mask_in="x:0px;y:0px;">VEHICLE FOR HIRE</div>
 
                                 <div class="tp-caption bottom-label"
                                      data-x="['550','550','550','570']"
                                      data-y="170"
                                      data-start="4200"
                                      data-fontsize="['20','20','20','30']"
-                                     data-transform_in="y:[100%];opacity:0;s:500;">Check out our options and features.</div>
+                                     data-transform_in="y:[100%];opacity:0;s:500;">Check out our hire vehicle options and features.</div>
 
                                 <div class="tp-caption"
                                      data-x="['1150','1150','1150','1170']"
@@ -309,21 +482,21 @@
                                      data-y="320"
                                      data-start="3950"
                                      data-fontsize="['37','37','37','47']"
-                                     data-transform_in="y:[300%];opacity:0;s:300;">Think</div>
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Single</div>
 
                                 <div class="tp-caption blackboard-text"
                                      data-x="['910','910','910','930']"
                                      data-y="370"
                                      data-start="4150"
                                      data-fontsize="['47','47','47','57']"
-                                     data-transform_in="y:[300%];opacity:0;s:300;">Outside</div>
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Solution</div>
 
                                 <div class="tp-caption blackboard-text"
                                      data-x="['910','910','910','930']"
                                      data-y="420"
                                      data-start="4350"
                                      data-fontsize="['32','32','32','42']"
-                                     data-transform_in="y:[300%];opacity:0;s:300;">The box :)</div>
+                                     data-transform_in="y:[300%];opacity:0;s:300;">For Travel Needs</div>
 
 
                             </li>
@@ -346,7 +519,7 @@
                                      data-y="272"
                                      data-fontsize="['24','24','24','36']"
                                      data-start="500"
-                                     data-transform_in="y:[-300%];opacity:0;s:500;">DO YOU NEED A NEW</div>
+                                     data-transform_in="y:[-300%];opacity:0;s:500;">DO YOU NEED A</div>
 
                                 <div class="tp-caption"
                                      data-x="['480','480','center','center']" data-hoffset="['0','0','150','220']"
@@ -362,14 +535,14 @@
                                      data-fontsize="['62','62','62','82']"
                                      data-transform_in="y:[100%];s:500;"
                                      data-transform_out="opacity:0;s:500;"
-                                     data-mask_in="x:0px;y:0px;">WEB DESIGN?</div>
+                                     data-mask_in="x:0px;y:0px;">CAB FOR RIDE</div>
 
                                 <div class="tp-caption bottom-label"
                                      data-x="['185','185','center','center']"
                                      data-y="['380','380','380','380']"
                                      data-start="2000"
                                      data-fontsize="['20','20','20','30']"
-                                     data-transform_in="y:[100%];opacity:0;s:500;">Check out our options and features.</div>
+                                     data-transform_in="y:[100%];opacity:0;s:500;">Check out our get a lyft options and features.</div>
 
                             </li>
 
@@ -384,14 +557,14 @@
                         <div class="row align-items-center">
                             <div class="col-lg-8">
                                 <p>
-                                    The fastest way to grow your business with the leader in <em>Technology</em>
+                                    The fastest way to grow your business with the leader in <em>Travel Services</em>
                                     <span>Check out our options and features included.</span>
                                 </p>
                             </div>
                             <div class="col-lg-4">
                                 <div class="get-started text-left text-lg-right">
-                                    <a href="#" class="btn btn-lg btn-primary">Get Started Now!</a>
-                                    <div class="learn-more">or <a href="index.html">learn more.</a></div>
+                                    <a href="UI/Licenses.html" class="btn btn-lg btn-primary">Get Started Now!</a>
+                                    <div class="learn-more">or <a href="UI/Licenses.html">learn more.</a></div>
                                 </div>
                             </div>
                         </div>
@@ -399,23 +572,54 @@
                     </div>
                 </div>
 
-                <div class="slider-contact-form">
-                    <div class="container" style="margin-top:100px">
-                        <div class="col-lg-3">
-                            
-                            <div class="row">
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Get-a-Lift</button></div>
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Hire Vehicle</button></div>
+                <div class="slider-contact-form mt-4">
+                    <div class="featured-boxes">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <div class="featured-box featured-box-primary">
+                                    <div class="box-content container">
+                                        <h4 class="heading-primary text-uppercase mb-3">Choose a service</h4>
+
+                                        <form action="/" id="frmSignIn" method="post">
+
+                                            <div class="form-row">
+                                                <div class="col-sm-6">
+                                                    <button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/Get-a-lift.html'">
+                                                        Get-a-Lift
+                                                    </button>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/HireVehicle.html'">Hire Vehicle</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/MeteredTaxi.html'">Metered Taxi</button></div>
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/Booking.html'">Book a Ticket</button></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/Ambulance.html'">Ambulance</button></div>
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/Towing.html'">Need Towing</button></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6"><button type="button" style="width:290px;" class="btn btn-primary" onclick="window.location.href='UI/DriverRegistration.html'">Become a Driver</button></div>
+                                            </div>
+                                            <div class="row" style="margin-top:5px;">
+                                                <div class="col-sm-6"><button type="button" style="width:290px;" class="btn btn-primary" onclick="window.location.href='UI/FleetOwner.html'">Become a Fleet Owner</button></div>
+                                            </div>
+                                            <div class="row" style="margin-top:5px;">
+                                                <div class="col-sm-6"><button type="button" style="width:290px;" class="btn btn-primary" onclick="window.location.href='UI/VehicleOwner.html'">Become a Vehicle Owner</button></div>
+                                            </div>
+                                            <div class="row" style="margin-top:5px;">
+                                                <div class="col-sm-6"><button type="button" style="width:290px;" class="btn btn-primary" onclick="window.location.href='UI/BrandAmbassador.html'">Become a Brand Ambassador</button></div>
+                                            </div>
+                                            <br />
+                                            <div class="row"></div>
+
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Metered Taxi</button></div>
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Book a Ticket</button></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Ambulance</button></div>
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Need Towing</button></div>
-                            </div>
-                           
                         </div>
                     </div>
                 </div>
@@ -427,30 +631,106 @@
             <div class="row text-center">
                 <div class="col">
                     <h1 class="mb-2 word-rotator-title">
-                        Porto is
+                        Paysmart is
                         <strong class="inverted">
                             <span class="word-rotator" data-plugin-options="{'delay': 2000, 'animDelay': 300}">
                                 <span class="word-rotator-items">
-                                    <span>incredibly</span>
-                                    <span>especially</span>
-                                    <span>extremely</span>
+                                    <span>simple</span>
+                                    <span>easy</span>
+                                    <span>smart</span>
+                                    <span>efficient</span>
                                 </span>
                             </span>
                         </strong>
-                        beautiful and fully responsive.
+                        innovative suite for all your travel needs.
                     </h1>
                     <p class="lead">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus suscipit molestie vestibulum.
+                        Paysmart offer technology solutions ranging from mobile app to portal, travel cards, ewallets, payment options, admin websites to cater to various travel needs of both customers and business partners.
                     </p>
                 </div>
             </div>
 
         </div>
+        <section class="section section-default m-none pt-md" id="overview">
+            <div class="container-fluid sample-item-container">
+                <div class="row">
 
+                </div>
+            </div>
+        </section>
+        
+        <!--<div class="row">
 
+            <div class="col-md-6">
 
-        <div class="container">
+                <h5 class="text-uppercase mt-4">Side Image Left</h5>
+                <span class="thumb-info thumb-info-side-image thumb-info-no-zoom">
+                    <span class="thumb-info-side-image-wrapper">
+                        <img src="img/projects/project-4.jpg" class="img-fluid" alt="" style="width: 200px;">
+                    </span>
+                    <span class="thumb-info-caption">
+                        <span class="thumb-info-caption-text">
+                            <h5 class="text-uppercase mb-1">Project Title</h5>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span>
+                    </span>
+                </span>
 
+            </div>
+
+            <div class="col-md-6">
+
+                <h5 class="text-uppercase mt-4">Side Image Right</h5>
+                <span class="thumb-info thumb-info-side-image thumb-info-side-image-right thumb-info-no-zoom">
+                    <span class="thumb-info-side-image-wrapper">
+                        <img src="img/projects/project-4.jpg" class="img-fluid" alt="" style="width: 200px;">
+                    </span>
+                    <span class="thumb-info-caption">
+                        <span class="thumb-info-caption-text">
+                            <h5 class="text-uppercase mb-1">Project Title</h5>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span>
+                    </span>
+                </span>
+
+            </div>
+        </div>-->
+
+        <!--<div class="row" style="margin-top:10px;">
+            
+                <div class="row" style="margin-left:30px;">
+                    <div class="col-md-3">
+                        <div class="featured-box-full featured-box-full-primary">
+                            <i class="fa fa-group"></i>
+                            <h4>Customer Support</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet. Quisque rutrum pellentesque imperdiet.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="featured-box-full featured-box-full-secondary">
+                            <i class="fa fa-film"></i>
+                            <h4>Sliders</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet. Quisque rutrum pellentesque imperdiet.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="featured-box-full featured-box-full-tertiary">
+                            <i class="fa fa-trophy"></i>
+                            <h4>Winner</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="featured-box-full featured-box-full-quaternary">
+                            <i class="fa fa-cogs"></i>
+                            <h4>Customizable</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet. Quisque rutrum pellentesque imperdiet.</p>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>-->
+        <div class="container" style="margin-top:20px;">
             <div class="row">
                 <div class="col-md-12">
                     <h2>Our <strong>Services</strong></h2>
@@ -567,49 +847,58 @@
             </div>
             <hr class="tall">
         </div>
-    </div>    
- 
+    </div>
+
 
     <footer class="short" id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
                     <h4>About PaySmart Portal</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos... <a href="#" class="btn-flat btn-xs">View More <i class="fas fa-arrow-right"></i></a></p>
+                    <p>Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
                     <hr class="light">
                     <div class="row">
                         <div class="col-lg-3">
-                            <h5>Blog</h5>
+                            <h5>Be a part of paysmart</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-full-width.html">Blog Full Width</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-large-image.html">Blog Large Image</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-medium-image.html">Blog Medium Image</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-post.html">Single Post</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Drive with paysmart</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Ride with paysmart</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Attach fleet</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Business owners</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Brand ambassdor</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Ticket agent</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3">
-                            <h5>Pages</h5>
+                            <h5>Services offered</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="page-full-width.html">Full width</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-left-sidebar.html">Left sidebar</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-right-sidebar.html">Right sidebar</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-custom-header.html">Custom Header</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Travel tickets</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Vehicle bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Vehicle hiring</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Ambulance services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Towing services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Train & flight bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Hotel bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Travel cards</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">License based services</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3">
                             <h5>Portfolio</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-2-columns.html">2 Columns</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-3-columns.html">3 Columns</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-4-columns.html">4 Columns</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-single-small-slider.html">Single Project</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Online portal</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Admin dashboard</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Customer app</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Business app</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Role based access</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Travel cards</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3">
-                            <h5>Extra Pages</h5>
+                            <h5>Help & Support</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="page-team.html">Team</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-services.html">Services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="page-team.html">Contact us</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="page-services.html">Getting a license</a></li>
                                 <li><i class="fas fa-caret-right"></i> <a href="page-careers.html">Careers</a></li>
                                 <li><i class="fas fa-caret-right"></i> <a href="page-faq.html">FAQ</a></li>
                                 <li><i class="fas fa-caret-right"></i> <a href="sitemap.html">Sitemap</a></li>
@@ -623,7 +912,7 @@
                     <p class="mb-0">International: (333) 456-6670</p>
                     <p class="mb-0">Fax: (222) 531-8999</p>
                     <ul class="list list-icons mt-4">
-                        <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 1234 Street Name, City Name, Zimbabwe</li>
                         <li><i class="far fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></li>
                     </ul>
                     <ul class="social-icons mt-4">
@@ -631,31 +920,31 @@
                         <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
                         <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                     </ul>
-                   
-                        <a href="index.html" class="logo">
-    <img height="2" alt="Porto Website Template" class="img-fluid" src="UI/img/apple-appstore-button.jpg">
-</a>
+
+                    <a href="index.html" class="logo">
+                        <img height="2" alt="Porto Website Template" class="img-fluid" src="UI/img/apple-appstore-button.jpg">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                
+
                 <hr class="light">
-                        <div class="row">
-                            <div class="col-lg-1">
-                                <a href="index.html" class="logo">
-                                    <img alt="Porto Website Template" class="img-fluid" src="UI/img/logo-footer.png">
-                                </a>
-                            </div>
-                            <div class="col-lg-11">
-                                <p>© Copyright 2018. All Rights Reserved.</p>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="index.html" class="logo">
+                            <img alt="Porto Website Template" class="img-fluid" src="UI/img/logo-footer.png">
+                        </a>
                     </div>
-              </div>
-</footer>
-    
+                    <div class="col-lg-11">
+                        <p>© Copyright 2018. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- Vendor -->
     <script src="UI/vendor/jquery/jquery.min.js"></script>

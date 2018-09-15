@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl">
+<head>
+    <title></title>
+</head>
+
+<body ng-model="Booking">
+    <table>
+        <tr>
+            <td>
+                <img id='masterimg' src="selction seats.jpg" alt="Planets" usemap="#seats" style="width:956px;height:261px;">
+
+                <map name="seats">
+                    <area shape="rect" style="background-color:red" coords="212,34,192,52" alt="Sun" href="#" onclick="AddSeats(A1);">
+                    <area shape="rect" style="background-color:red" coords="234,34,217,52" alt="Sun" href="#" onclick="AddSeats(A2);">
+                    <area shape="rect" style="background-color:red" coords="258,34,242,52" alt="Sun" href="#" onclick="AddSeats(A3);">
+                    <area shape="rect" style="background-color:red" coords="283,34,266,52" alt="Sun" href="#" onclick="alert('A4 Selected');">
+                    <area shape="rect" style="background-color:red" coords="307,34,290,52" alt="Sun" href="#" onclick="alert('A5 Selected');">
+                    <area shape="rect" style="background-color:red" coords="331,34,314,52" alt="Sun" href="#" onclick="alert('A6 Selected');">
+                    <area shape="rect" style="background-color:red" coords="354,34,338,52" alt="Sun" href="#" onclick="alert('A7 Selected');">
+                    <area shape="rect" style="background-color:red" coords="378,34,362,52" alt="Sun" href="#" onclick="alert('A8 Selected');">
+                    <area shape="rect" style="background-color:red" coords="402,34,386,52" alt="Sun" href="#" onclick="alert('A9 Selected');">
+                    <area shape="rect" style="background-color:red" coords="425,34,410,52" alt="Sun" href="#" onclick="alert('A10 Selected');">
+
+
+                    <area shape="rect" style="background-color:red" coords="212,59,192,71" alt="Sun" href="#" onclick="alert('B1 Selected');">
+                    <area shape="rect" style="background-color:red" coords="234,59,217,71" alt="Sun" href="#" onclick="alert('B2 Selected');">
+                    <area shape="rect" style="background-color:red" coords="258,59,242,71" alt="Sun" href="#" onclick="alert('B3 Selected');">
+                    <area shape="rect" style="background-color:red" coords="283,59,266,71" alt="Sun" href="#" onclick="alert('B4 Selected');">
+                    <area shape="rect" style="background-color:red" coords="307,59,290,71" alt="Sun" href="#" onclick="alert('B5 Selected');">
+                    <area shape="rect" style="background-color:red" coords="331,59,314,71" alt="Sun" href="#" onclick="alert('B6 Selected');">
+                    <area shape="rect" style="background-color:red" coords="354,59,338,71" alt="Sun" href="#" onclick="alert('B7 Selected');">
+                    <area shape="rect" style="background-color:red" coords="378,59,362,71" alt="Sun" href="#" onclick="alert('B8 Selected');">
+                    <area shape="rect" style="background-color:red" coords="402,59,386,71" alt="Sun" href="#" onclick="alert('B9 Selected');">
+                    <area shape="rect" style="background-color:red" coords="425,59,410,71" alt="Sun" href="#" onclick="alert('B10 Selected');">
+                </map>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <script src="js/main.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/ngStorage.js"></script>
+    <script src="js/Booking.js"></script>
+
+</body>
+</html>
