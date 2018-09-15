@@ -1862,6 +1862,7 @@
     <Content Include="UI\LicensePage.html" />
     <Content Include="UI\Licenses.html" />
     <Content Include="UI\MeteredTaxi.html" />
+    <Content Include="UI\CommingSoon.html" />
     <Content Include="UI\Products.html" />
     <Content Include="UI\Recharge.html" />
     <Content Include="UI\Refund.html" />
