@@ -119,6 +119,7 @@
     <Content Include="UI\Booking.html" />
     <Content Include="UI\BookTicket.html" />
     <Content Include="UI\BrandAmbassador.html" />
+    <Content Include="UI\BusinessOwner.html" />
     <Content Include="UI\Cancellation.html" />
     <Content Include="UI\Cards.html" />
     <Content Include="UI\Complaints.html" />
@@ -1853,6 +1854,7 @@
     <Content Include="UI\js\bootstrap.min.js" />
     <Content Include="UI\js\bxslider.min.js" />
     <Content Include="UI\js\custom.js" />
+    <Content Include="UI\js\DriverRegistration.js" />
     <Content Include="UI\js\Get-a-Lift.js" />
     <Content Include="UI\js\ngStorage.js" />
     <Content Include="UI\js\Search.js" />
@@ -1863,6 +1865,7 @@
     <Content Include="UI\LicensePage.html" />
     <Content Include="UI\Licenses.html" />
     <Content Include="UI\MeteredTaxi.html" />
+    <Content Include="UI\CommingSoon.html" />
     <Content Include="UI\Products.html" />
     <Content Include="UI\Recharge.html" />
     <Content Include="UI\Refund.html" />
@@ -3460,7 +3463,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Trace.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\StopsController.cs" />
     <Compile Include="Controllers\TicketBookingController.cs" />
     <Compile Include="Controllers\websiteuserinfoController.cs" />
