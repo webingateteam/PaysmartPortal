@@ -175,6 +175,7 @@
     <Content Include="UI\HireVehicle.html" />
     <Content Include="UI\images\404-style1.png" />
     <Content Include="UI\images\Ambulanc.png" />
+    <Content Include="UI\images\arrow-right-01-512.png" />
     <Content Include="UI\images\audi_PNG1771.png" />
     <Content Include="UI\images\auto.jpg" />
     <Content Include="UI\images\breakdown2.jpg" />
@@ -1472,6 +1473,7 @@
     <Content Include="UI\img\demos\wedding\the-wedding\the-wedding-party.jpg" />
     <Content Include="UI\img\device.png" />
     <Content Include="UI\img\dotted-line-angle.png" />
+    <Content Include="UI\img\download.jpg" />
     <Content Include="UI\img\downloads\10129170.jpg" />
     <Content Include="UI\img\downloads\12.jpg" />
     <Content Include="UI\img\downloads\cab1.jpg" />
@@ -1856,6 +1858,9 @@
     <Content Include="UI\js\custom.js" />
     <Content Include="UI\js\DriverRegistration.js" />
     <Content Include="UI\js\Get-a-Lift.js" />
+    <Content Include="UI\js\maps\gmap.js" />
+    <Content Include="UI\js\maps\vs-autocomplete-validator.js" />
+    <Content Include="UI\js\maps\vs-google-autocomplete.js" />
     <Content Include="UI\js\ngStorage.js" />
     <Content Include="UI\js\Search.js" />
     <Content Include="UI\js\theme.init.js" />
