@@ -1873,6 +1873,7 @@
     <Content Include="UI\js\ui-bootstrap-tpls-1.3.3.js" />
     <Content Include="UI\LicensePage.html" />
     <Content Include="UI\Licenses.html" />
+    <Content Include="UI\Licensesample.html" />
     <Content Include="UI\MeteredTaxi.html" />
     <Content Include="UI\CommingSoon.html" />
     <Content Include="UI\Products.html" />
@@ -3469,7 +3470,9 @@
     <Content Include="UI\vendor\simple-line-icons\gulpfile.js" />
     <Content Include="UI\vendor\vide\vide.js" />
     <Content Include="UI\vendor\vide\vide.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Trace.cs" />
@@ -3487,7 +3490,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
