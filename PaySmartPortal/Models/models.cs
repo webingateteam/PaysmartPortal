@@ -142,4 +142,47 @@ namespace PaySmartPortal.Models
         public string TicketContent { get; set; }
         public string insupddelflag { get; set; }
     }
+
+    public class UserInfo
+    {
+        public int Id { get; set; }
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+        public String MiddleName { get; set; }
+        public String UserName { get; set; }
+        public String Password { get; set; }
+        public String EmailAddress { get; set; }
+        public String Mobile { get; set; }
+        public String Country { get; set; }
+        public int CountryId { get; set; }
+        public String AltMobileNo { get; set; }
+        public int Gender { get; set; }
+        public int UserTypeId { get; set; }
+        public int UserId { get; set; }
+        public int Active { get; set; }
+        public string InsUpdDelFlag { get; set; }
+        public String EVerificationCode { get; set; }
+        public DateTime EVerifiedOn { get; set; }
+        public int IsEmailVerified { get; set; }
+        public String MVerificationCode { get; set; }
+        public DateTime MVerifiedOn { get; set; }
+        public int IsMobileVerified { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public int ENoOfAttempts { get; set; }
+        public int MNoOfAttempts { get; set; }
+
+
+    }
+    public class UserLogin
+    {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public string LoginInfo { get; set; }
+        public string Passkey { get; set; }
+        public string Salt { get; set; }
+        public string Active { get; set; }
+        public int NoofAttempts { get; set; }
+
+
+    }
 }

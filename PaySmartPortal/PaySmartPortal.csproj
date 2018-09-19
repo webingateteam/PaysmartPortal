@@ -116,6 +116,7 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="UI\AdvertisementLicense.html" />
     <Content Include="UI\Ambulance.html" />
+    <Content Include="UI\Animate.html" />
     <Content Include="UI\Booking.html" />
     <Content Include="UI\BookTicket.html" />
     <Content Include="UI\BrandAmbassador.html" />
@@ -163,6 +164,7 @@
     <Content Include="UI\DriverRegistration.html" />
     <Content Include="UI\EmailTemplates\1.txt" />
     <Content Include="UI\EmailTemplates\TicketFormat.html" />
+    <Content Include="UI\Faqs.html" />
     <Content Include="UI\Fares_and_payments.html" />
     <Content Include="UI\fileupload\angular-file-upload-shim.js" />
     <Content Include="UI\fileupload\angular-file-upload.js" />
@@ -1859,11 +1861,13 @@
     <Content Include="UI\js\custom.js" />
     <Content Include="UI\js\DriverRegistration.js" />
     <Content Include="UI\js\Get-a-Lift.js" />
+    <Content Include="UI\js\index.js" />
     <Content Include="UI\js\maps\gmap.js" />
     <Content Include="UI\js\maps\vs-autocomplete-validator.js" />
     <Content Include="UI\js\maps\vs-google-autocomplete.js" />
     <Content Include="UI\js\ngAutocomplete.js" />
     <Content Include="UI\js\ngStorage.js" />
+    <Content Include="UI\js\Profile.js" />
     <Content Include="UI\js\Search.js" />
     <Content Include="UI\js\theme.init.js" />
     <Content Include="UI\js\theme.js" />
@@ -3476,6 +3480,7 @@
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\StopsController.cs" />
     <Compile Include="Controllers\TicketBookingController.cs" />
+    <Compile Include="Controllers\ValidateCredentialsController.cs" />
     <Compile Include="Controllers\websiteuserinfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
