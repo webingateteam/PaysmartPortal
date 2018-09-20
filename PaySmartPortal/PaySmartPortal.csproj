@@ -1862,6 +1862,7 @@
     <Content Include="UI\js\DriverRegistration.js" />
     <Content Include="UI\js\Get-a-Lift.js" />
     <Content Include="UI\js\index.js" />
+    <Content Include="UI\js\Licenses.js" />
     <Content Include="UI\js\maps\gmap.js" />
     <Content Include="UI\js\maps\vs-autocomplete-validator.js" />
     <Content Include="UI\js\maps\vs-google-autocomplete.js" />
@@ -3481,6 +3482,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\LicenseController.cs" />
     <Compile Include="Controllers\StopsController.cs" />
     <Compile Include="Controllers\TicketBookingController.cs" />
     <Compile Include="Controllers\ValidateCredentialsController.cs" />

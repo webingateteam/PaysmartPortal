@@ -113,7 +113,20 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="dropdown dropdown-mega dropdown-mega-signin signin" id="headerAccount">
+                                            <li class="dropdown" ng-hide="username == 0 || username == null">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    <i class="fas fa-user" href="#"></i> {{username}}
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/UserProfile.html">Profile</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" ng-click="LogoutUser()">Signout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-mega dropdown-mega-signin signin" id="headerAccount" ng-show="username == 0 || username == null">
                                                 <a class="dropdown-item dropdown-toggle" href="#">
                                                     <i class="fas fa-user"></i> Sign In
                                                 </a>
@@ -150,7 +163,7 @@
                                                                                     </span>
                                                                                 </div>
                                                                                 <div class="form-group col-lg-6 pr-0">
-                                                                                    <button type="submit" value="Login" class="btn btn-primary float-right mb-3" ng-click="Signin()">Login</button>
+                                                                                    <button type="button" class="btn btn-primary float-right mb-3" ng-click="Signin()">Login</button>
                                                                                 </div>
                                                                             </div>
                                                                         </form>
@@ -372,7 +385,7 @@
                                                             <a class="dropdown-item" href="UI/Cards.html">Cards</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/LicensePage.html">Fleet Owner Licence</a>
+                                                            <a class="dropdown-item" href="UI/Licenses.html">Fleet Owner Licence</a>
                                                         </li>
                                                         <li class="dropdown">
                                                             <a class="dropdown-item" href="UI/Renewal.html">Fleet Owner Renewal Licence</a>

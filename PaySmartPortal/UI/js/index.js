@@ -207,6 +207,10 @@ var mycrtl1 = myapp1.controller('myCtrl', function ($scope, $http, $localStorage
                 alert('invalid credentials');
             }
             else {
+                $localStorage.uname = res.data[0].FirstName;
+                $scope.username = $localStorage.uname;
+                $localStorage.userdetails = res.data;
+
                 window.location.href = "UI/UserProfile.html";
                 //if the user has role, then get the details and save in session
                 //$localStorage.uname = res.data[0].FirstName;
@@ -214,6 +218,12 @@ var mycrtl1 = myapp1.controller('myCtrl', function ($scope, $http, $localStorage
                 //$localStorage.userdetails = res.data;
                 //  window.location.href = "UI/BookedTicketHistory.html";
                 //$uibModal.close();
+                //if ($scope.selectedOp == 1) {
+                //    window.location.href = "UI/BookedTicketHistory.html";
+                //}
+                //else {
+                //    window.location.href = "UI/UserProfile.html";
+                //}
                 //if ($scope.selectedOp == 1) {
                 //    window.location.href = "BookedTicketHistory.html";
                 //}
