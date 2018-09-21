@@ -1533,6 +1533,7 @@
     <Content Include="UI\img\layout-styles.png" />
     <Content Include="UI\img\loading.gif" />
     <Content Include="UI\img\localads.jpg" />
+    <Content Include="UI\img\location-512.png" />
     <Content Include="UI\img\logo-big.png" />
     <Content Include="UI\img\logo-dark.png" />
     <Content Include="UI\img\logo-default-slim-dark.png" />
@@ -3480,6 +3481,7 @@
   <ItemGroup>
     <Compile Include="App_Start\Trace.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\LicenseController.cs" />

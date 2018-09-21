@@ -5,6 +5,95 @@ using System.Web;
 
 namespace PaySmartPortal.Models
 {
+    public class VehicleBooking
+    {
+        public string flag { get; set; }
+        public int Id { get; set; }
+        public int CompanyId { get; set; }
+        public int BNo { get; set; }
+        public string BookingType { get; set; }
+
+        public string ReqVehicle { get; set; }
+        public string Customername { get; set; }
+        public string CusID { get; set; }
+        public string PhoneNo { get; set; }
+        public string AltPhoneNo { get; set; }
+        public string CAddress { get; set; }
+        public string PickupAddress { get; set; }
+        public string LandMark { get; set; }
+        public string Package { get; set; }
+        public string PickupPalce { get; set; }
+        public string DropPalce { get; set; }
+        public string ReqType { get; set; }
+        public int ExtraCharge { get; set; }
+        public int NoofVehicles { get; set; }
+        public string ExecutiveName { get; set; }
+        public int VID { get; set; }
+        public string BookingStatus { get; set; }
+        public string CustomerSMS { get; set; }
+        public string CancelReason { get; set; }
+        public decimal CBNo { get; set; }
+        public string ModifiedBy { get; set; }
+        public string CancelBy { get; set; }
+        public string ReconfirmedBy { get; set; }
+        public string AssignedBy { get; set; }
+
+        public float lat { get; set; }
+        public float lng { get; set; }
+        public string Mobileotp { get; set; }
+
+        public int VehicleGroupId { get; set; }
+        public int VehicleTypeId { get; set; }
+        public float Rating { get; set; }
+        public string RatedBy { get; set; }
+        public string Comments { get; set; }
+        public string PMobNo { get; set; }
+        public float latitude { get; set; }
+        public float longitude { get; set; }
+        public int SrcId { get; set; }
+        public int DestId { get; set; }
+        public string Src { get; set; }
+        public string Dest { get; set; }
+        public int PackageId { get; set; }
+        public DateTime? Time { get; set; }
+        public DateTime? Date { get; set; }
+        public DateTime? ETA { get; set; }
+        public string BookingId { get; set; }
+        public DateTime? BookedDate { get; set; }
+        public DateTime? BookedTime { get; set; }
+        public DateTime? DepartueDate { get; set; }
+        public DateTime? DepartureTime { get; set; }
+        public float SrcLatitude { get; set; }
+        public float SrcLongitude { get; set; }
+        public float DestLatitude { get; set; }
+        public float DestLongitude { get; set; }
+        public int VechId { get; set; }
+        public decimal Pricing { get; set; }
+        public int DriverId { get; set; }
+        public string DriverPhoneNo { get; set; }
+        public string CustomerPhoneNo { get; set; }
+        public int CustomerId { get; set; }
+        public int NoofSeats { get; set; }
+        public DateTime? ClosingDate { get; set; }
+        public DateTime? ClosingTime { get; set; }
+        public DateTime? CancelledOn { get; set; }
+        public int cancellationType { get; set; }
+        public string CancelledBy { get; set; }
+        public string BookingChannel { get; set; }
+        public string Reasons { get; set; }
+        public String BVerificationCode { get; set; }
+        public string OTPVerification { get; set; }
+        public decimal Amount { get; set; }
+        public string PaymentStatus { get; set; }
+        public string BookingOTP { get; set; }
+        public int UpdatedBy { get; set; }
+        public int UpdatedUserId { get; set; }
+        public float DriverRating { get; set; }
+        public int DriverRated { get; set; }
+        public string DriverComments { get; set; }
+        public decimal distance { get; set; }
+        public int PaymentTypeId { get; set; }
+    }
     public class ConfigData
     {
         public int includeStatus { get; set; }

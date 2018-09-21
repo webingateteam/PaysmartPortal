@@ -9,6 +9,56 @@ app.controller('mapCtrl', function ($scope, $http) {
     var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var geocoder = new google.maps.Geocoder();
+    $scope.Booking = function () {
+        if ($scope.pickupPoint_name == null) {
+            alert('Please select Source Point');
+            return;
+        }
+        if ($scope.droppoint_name == null) {
+            alert('Please select Drop Point');
+            return;
+        }
+        if ($scope.phoneno == null) {
+            alert('Please Enetr Mobile Number');
+            return;
+        }
+
+        var req = {
+            Src:$scope.pickupPoint_name,
+            Dest: $scope.droppoint_name,
+            CustomerPhoneNo: $scope.phoneno,
+            VehicleGroupId:34,
+            SrcLatitude:$scope.edtlat,
+            SrcLongitude: $scope.edtlog,
+            DestLatitude:$scope.ddroptlat,
+            DestLongitude:$scope.ddroptlat,
+            Pricing:300,
+            DriverId:'2',
+            DriverPhoneNo:'113',
+            BookingStatus:'',
+            PaymentStatus:'',
+            Distance:40,
+            PaymentTypeId:'',
+            OrderNo: '',
+            VechId: '256',
+            flag:'I'
+        };
+        var breq = {
+            method: 'POST',
+            url: '/api/VehicleBooking/SaveBookingDetails',
+            data: req
+        }
+        $http(breq).then(function (res) {
+            $scope.initdata = res.data;
+            //alert('display');
+            $scope.confirmdetails();
+
+        }, function (eer) {
+            alert('Selection src/dest are wrong...')
+        });
+    }
+    //Begin Pickup point
+   
     google.maps.event.addDomListener(window, 'load', function () {
         var places = new google.maps.places.Autocomplete(document.getElementById('aad'));
         google.maps.event.addListener(places, 'place_changed', function () {
@@ -28,8 +78,10 @@ app.controller('mapCtrl', function ($scope, $http) {
         });
        
     });
+    //end Pickup point
 
-    //Begin Dropedit
+
+    //Begin Dropedit 
     google.maps.event.addDomListener(window, 'load', function () {
         var places = new google.maps.places.Autocomplete(document.getElementById('edrop'));
         google.maps.event.addListener(places, 'place_changed', function () {
@@ -137,6 +189,7 @@ app.controller('mapCtrl', function ($scope, $http) {
                         infowindow.setContent(results[0].formatted_address);
                         infowindow.open(map, marker);
                         $scope.droppoint_name = results[0].formatted_address;
+                        document.getElementById("edrop").placeholder = results[0].formatted_address;
                     } else {
                         window.alert('No results found');
                     }
@@ -175,6 +228,8 @@ app.controller('mapCtrl', function ($scope, $http) {
                 function geocodeLatLng(dd, geocoder, map, infowindow) {
                     //var input = document.getElementById('latlng').value;
                     var latlngStr = dd.split(',', 2);
+                    $scope.edtlat=latlngStr[0];
+                    $scope.edtlog=latlngStr[1];
                     var latlng = { lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1]) };
                     geocoder.geocode({ 'location': latlng }, function (results, status) {
                         if (status === 'OK') {
@@ -513,5 +568,70 @@ app.controller('mapCtrl', function ($scope, $http) {
             }
         });
         //End Road Map
+    }
+
+    $scope.getcurrentloc1 = function () {
+        $scope.goBackpickup();
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (p) {
+                var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+                var mapOptions = {
+                    center: LatLng,
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                var infowindow = new google.maps.InfoWindow;
+                var geocoder = new google.maps.Geocoder;
+                var marker = new google.maps.Marker({
+                    position: LatLng,
+                    map: map,
+                    title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+                });
+                geocodeLatLng(p.coords.latitude + ',' + p.coords.longitude, geocoder, map, infowindow);
+                function geocodeLatLng(dd, geocoder, map, infowindow) {
+                    //var input = document.getElementById('latlng').value;
+                    var latlngStr = dd.split(',', 2);
+                    $scope.edtlat = latlngStr[0];
+                    $scope.edtlog = latlngStr[1];
+                    var latlng = { lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1]) };
+                    geocoder.geocode({ 'location': latlng }, function (results, status) {
+                        if (status === 'OK') {
+                            if (results[0]) {
+                                //map.setZoom(11);
+                                var marker = new google.maps.Marker({
+                                    position: latlng,
+                                    map: map
+                                });
+                                infowindow.setContent(results[0].formatted_address);
+                                infowindow.open(map, marker);
+                                $scope.pickupPoint_name = results[0].formatted_address;
+                                document.getElementById("pickname").value = results[0].formatted_address;
+                                document.getElementById("aad").placeholder = '';
+                                document.getElementById("aad").value = '';
+                                document.getElementById("aad").placeholder = results[0].formatted_address;
+                                //$scope.pickupPoint_name = t;
+                                //$scope.pickupPoint_name = t;
+                                //$scope.pickupPoint_name1 = t;
+                            } else {
+                                window.alert('No results found');
+                            }
+                        } else {
+                            window.alert('Geocoder failed due to: ' + status);
+                        }
+                    });
+                }
+
+                google.maps.event.addListener(marker, "click", function (e) {
+                    var infoWindow = new google.maps.InfoWindow();
+                    infoWindow.setContent(marker.title);
+                    infoWindow.open(map, marker);
+
+                });
+            });
+        } else {
+            alert('Geo Location feature is not supported in this browser.');
+        }
+
     }
 });
