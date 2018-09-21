@@ -161,6 +161,7 @@
     <Content Include="UI\css\theme-elements.css" />
     <Content Include="UI\css\theme-shop.css" />
     <Content Include="UI\css\theme.css" />
+    <Content Include="UI\DemoRequest.html" />
     <Content Include="UI\DriverRegistration.html" />
     <Content Include="UI\EmailTemplates\1.txt" />
     <Content Include="UI\EmailTemplates\TicketFormat.html" />
@@ -1859,6 +1860,7 @@
     <Content Include="UI\js\bootstrap.min.js" />
     <Content Include="UI\js\bxslider.min.js" />
     <Content Include="UI\js\custom.js" />
+    <Content Include="UI\js\DemoRequest.js" />
     <Content Include="UI\js\DriverRegistration.js" />
     <Content Include="UI\js\Get-a-Lift.js" />
     <Content Include="UI\js\index.js" />
@@ -3482,6 +3484,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\DemoRequestController.cs" />
     <Compile Include="Controllers\LicenseController.cs" />
     <Compile Include="Controllers\StopsController.cs" />
     <Compile Include="Controllers\TicketBookingController.cs" />

@@ -266,6 +266,50 @@ var mycrtl1 = myapp1.controller('myCtrl', function ($scope, $http, $localStorage
         window.location.href = "../index.html";
     }
 
+    $scope.SaveDemo = function (d) {
+        if (d == null) {
+            alert('Please enter Details.');
+            return;
+        }
+
+        var demo = {
+
+            Id:-1,
+            countryid: 1,
+            Businessname: d.Businessname,
+            email: d.Email,
+            LoginNo: d.LoginNo,
+            mobile: d.Mobilenumber,
+            Reviewed: 1,//d.BusinessName,
+            notification: 1,//d.BusinessName,
+            statusid: 1,           
+            flag: 'I'
+        };
+
+
+
+        var req = {
+            method: 'POST',
+            url: '/api/DemoRequest/SaveDemoRequest',
+            //headers: {
+            //    'Content-Type': undefined
+
+            data: demo
+        }        
+        $http(req).then(function (response) {
+            $scope.demoreq = response.data;
+            alert("Demo Request is Successfull.");
+            $scope.d = '';
+
+        }, function (errres) {
+            var errdata = errres.data;
+            var errmssg = "";            
+            errmssg = (errdata && errdata.ExceptionMessage) ? errdata.ExceptionMessage : errdata.Message;
+            alert(errmssg);
+        });
+
+    }
+
     $scope.showDialog = function (message) {
 
         var modalInstance = $uibModal.open({

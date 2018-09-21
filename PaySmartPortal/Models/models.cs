@@ -185,4 +185,18 @@ namespace PaySmartPortal.Models
 
 
     }
+
+    public class DemoRequest
+    {
+        public string flag { get; set; }
+        public int Id { get; set; }
+        public string Businessname { get; set; }
+        public string email { get; set; }
+        public string mobile { get; set; }
+        public int countryid { get; set; }
+        public string LoginNo { get; set; }
+        public string Reviewed { get; set; }
+        public string notification { get; set; }
+        public int statusid { get; set; }        
+    }
 }
