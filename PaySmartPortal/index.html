@@ -74,6 +74,11 @@
                                 <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
                                     <nav class="collapse">
                                         <ul class="nav nav-pills">
+                                            <li class="dropdown">
+                                                <a class="active" href="UI/DemoRequest.html">
+                                                    GET DEMO NOW
+                                                </a>
+                                            </li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <img src="UI/img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe
@@ -1202,7 +1207,7 @@
 
                 <div class="slider-contact-form mt-4">
                     <div class="featured-boxes">
-                        <div class="row">
+                        <div class="row" style="margin-top:-50px;">
                             <div class="col-md-1"></div>
                             <div class="col-md-3">
                                 <div class="featured-box featured-box-primary">
@@ -1237,8 +1242,50 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row" style="margin-top:-40px;">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <div class="featured-box featured-box-primary">
+                                    <div class="box-content container">
+                                        <h4 class="heading-primary text-uppercase mb-3"></h4>
+
+                                        <form ng-model="d">
+                                            <div class="form-row">
+                                                <div class="col-sm-12">
+                                                    <input type="text" ng-model="d.Businessname" class="form-control" placeholder="BUSINESS NAME *"/>
+                                                </div>                                               
+                                            </div>
+                                            <div class="form-row" style="margin-top:10px;">
+                                            <div class="col-sm-12">
+                                                <input type="text" ng-model="d.Email" class="form-control" placeholder="EMAIL ADDRESS *" />
+                                            </div>
+                                            </div>
+                                            <div class="form-row" style="margin-top:10px;">
+                                                <div class="col-sm-4">    
+                                                    <select class="form-control" ng-model="d.LoginNo">
+                                                        <option value="+91">+91</option>
+                                                        <option value="+263">+263</option>
+                                                    </select>                                                           
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <input type="text" ng-model="d.Mobilenumber" class="form-control" placeholder="MOBILE NUMBER *" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="btn btn-primary" ng-click="SaveDemo(d)" style="margin-top:10px;margin-left:28%;">GET DEMO NOW</button>
+                                            </div>
+                                                <br />
+                                            <div class="row"></div>
+                                            
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+               
             </div>
         </div>
 
