@@ -1,6 +1,7 @@
 ﻿var app = angular.module('myApp', ['google-maps','vsGoogleAutocomplete']);
 app.controller('mapCtrl', function ($scope, $http) {
     $scope.selectloc = 1;
+    $scope.Active = '0';
     var d = '';
     //$scope.pickupPoint_name = "Motinagar,Gayathi Apartments,hyderabad";
     $scope.selectpick = "Motinagar,Gayathi Apartments,hyderabad";
@@ -79,7 +80,6 @@ app.controller('mapCtrl', function ($scope, $http) {
        
     });
     //end Pickup point
-
 
     //Begin Dropedit 
     google.maps.event.addDomListener(window, 'load', function () {
@@ -633,5 +633,15 @@ app.controller('mapCtrl', function ($scope, $http) {
             alert('Geo Location feature is not supported in this browser.');
         }
 
+    }
+    $scope.luggagever = function () {
+    }
+    var range = [];
+    for (var i = 1; i <=20; i++) {
+        range.push(i);
+    }
+    $scope.range = range;
+    $scope.whenselection = function () {
+       
     }
 });
