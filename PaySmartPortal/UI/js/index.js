@@ -278,7 +278,7 @@ var mycrtl1 = myapp1.controller('myCtrl', function ($scope, $http, $localStorage
             countryid: 1,
             Businessname: d.Businessname,
             email: d.Email,
-            LoginNo: d.LoginNo,
+            LoginNo: (d.LoginNo == "" || d.LoginNo == null)? '+91' : d.LoginNo,
             mobile: d.Mobilenumber,
             Reviewed: 1,//d.BusinessName,
             notification: 1,//d.BusinessName,
