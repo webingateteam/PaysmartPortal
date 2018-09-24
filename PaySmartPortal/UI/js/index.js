@@ -153,6 +153,13 @@ var mycrtl1 = myapp1.controller('myCtrl', function ($scope, $http, $localStorage
         });
     }
 
+    $scope.GetAdvertisment = function () {
+
+        $http.get('/api/License/GetAdvertisment').then(function (response, req) {
+            $scope.advertisement = response.data;
+        });
+    }
+
     $scope.VerifyEmailAddress = function () {
 
         if ($scope.emailAddrCode == null) {
@@ -278,7 +285,7 @@ var mycrtl1 = myapp1.controller('myCtrl', function ($scope, $http, $localStorage
             countryid: 1,
             Businessname: d.Businessname,
             email: d.Email,
-            LoginNo: (d.LoginNo == "" || d.LoginNo == null)? '+91' : d.LoginNo,
+            LoginNo: (d.LoginNo == "" || d.LoginNo == null) ? '+91' : d.LoginNo,
             mobile: d.Mobilenumber,
             Reviewed: 1,//d.BusinessName,
             notification: 1,//d.BusinessName,
