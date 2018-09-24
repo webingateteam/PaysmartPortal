@@ -9,7 +9,7 @@
     <title>PaySmart Portal</title>
 
     <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Porto - Responsive HTML5 Template">
+    <meta name="description" content="PaySmart - Responsive HTML5 Template">
     <meta name="author" content="okler.net">
 
     <!-- Favicon -->
@@ -75,6 +75,11 @@
                                 <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
                                     <nav class="collapse">
                                         <ul class="nav nav-pills">
+                                            <li class="dropdown">
+                                                <a class="active" href="DemoRequest.html">
+                                                    GET DEMO NOW
+                                                </a>
+                                            </li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <img src="img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe
@@ -87,9 +92,19 @@
                                                 </div>
                                             </li>
                                             <li class="dropdown">
-                                                <a class="active" href="../index.html">
+                                                <a class="dropdown-item dropdown-toggle active" href="#">
                                                     Book Now
                                                 </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="Get-a-Lift.html">Get-a-Lift</a>
+                                                        <a class="dropdown-item" href="MeteredTaxi.html">Metered Taxi</a>
+                                                        <a class="dropdown-item" href="HireVehicle.html">Hire Vehicle</a>
+                                                        <a class="dropdown-item" href="BookTicket.html">Book Ticket</a>
+                                                        <a class="dropdown-item" href="Ambulance.html">Ambulance</a>
+                                                        <a class="dropdown-item" href="Towing.html">Towing</a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li class="dropdown">
                                                 <a class="dropdown-item dropdown-toggle" href="#">Partner with Us as</a>
@@ -114,7 +129,20 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="dropdown dropdown-mega dropdown-mega-signin signin" id="headerAccount">
+                                            <!--<li class="dropdown" ng-hide="username == 0 || username == null">
+                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                <i class="fas fa-user" href="#"></i> {{username}}
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" href="UI/UserProfile.html">Profile</a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" ng-click="LogoutUser()">Signout</a>
+                                                </li>
+                                            </ul>
+                                        </li>-->
+                                            <li class="dropdown dropdown-mega dropdown-mega-signin signin" id="headerAccount" ng-show="username == 0 || username == null">
                                                 <a class="dropdown-item dropdown-toggle" href="#">
                                                     <i class="fas fa-user"></i> Sign In
                                                 </a>
@@ -132,14 +160,14 @@
                                                                             <div class="form-row">
                                                                                 <div class="form-group col">
                                                                                     <label>Username or E-mail Address</label>
-                                                                                    <input type="text" value="" class="form-control" tabindex="1">
+                                                                                    <input type="text" value="" class="form-control" tabindex="1" ng-model="UserName">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-row">
                                                                                 <div class="form-group col">
                                                                                     <a class="float-right mt-0 p-0" id="headerRecover" href="#">(Lost Password?)</a>
                                                                                     <label>Password</label>
-                                                                                    <input type="password" value="" class="form-control" tabindex="2">
+                                                                                    <input type="password" value="" class="form-control" tabindex="2" ng-model="Password">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-row">
@@ -151,7 +179,7 @@
                                                                                     </span>
                                                                                 </div>
                                                                                 <div class="form-group col-lg-6 pr-0">
-                                                                                    <input type="submit" value="Login" class="btn btn-primary float-right mb-3" data-loading-text="Loading...">
+                                                                                    <button type="button" class="btn btn-primary float-right mb-3" ng-click="Signin()">Login</button>
                                                                                 </div>
                                                                             </div>
                                                                         </form>
@@ -166,36 +194,46 @@
                                                                         <form action="/" id="frmSignUp" method="post">
                                                                             <div class="row">
                                                                                 <div class="col-md-6">
-                                                                                    <label>Country code</label>
-                                                                                    <div class="selector">
-                                                                                        <select class="form-control" ng-options="C.Name for C in Country track by C.Id" ng-model="register.Country">
-                                                                                            <option value="">Select Country</option>
-                                                                                        </select>
-                                                                                    </div>
+                                                                                    <label>First Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.FirstName" class="form-control" />
                                                                                 </div>
                                                                                 <div class="col-md-6">
-                                                                                    <label>User name</label>
+                                                                                    <label>Last Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.LastName" class="form-control" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>User Name</label>
                                                                                     <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Country</label>
+                                                                                    <div class="selector">
+                                                                                        <select class="form-control" ng-options="C.Name for C in initdata.Table track by C.Id" ng-model="register.Country">
+                                                                                            <option value="">Select</option>
+                                                                                        </select>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
                                                                                 <div class="col-md-6">
                                                                                     <label>Email</label>
-                                                                                    <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.Email" class="form-control" />
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <label>Mobile Number</label>
-                                                                                    <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.Mobilenumber" class="form-control" />
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
                                                                                 <div class="col-md-6">
                                                                                     <label>Password</label>
-                                                                                    <input type="password" value="" class="form-control">
+                                                                                    <input type="password" value="" class="form-control" ng-model="register.Password" />
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <label>Re-enter Password</label>
-                                                                                    <input type="password" value="" class="form-control">
+                                                                                    <input type="password" value="" class="form-control" ng-model="register.RePassword" />
                                                                                 </div>
                                                                             </div>
                                                                             <br />
@@ -208,8 +246,8 @@
                                                                         </div>-->
 
                                                                             <div class="form-row">
-                                                                                <div class="col-lg-12">
-                                                                                    <input type="submit" value="Create Account" class="btn btn-primary float-right mb-3" data-loading-text="Loading...">
+                                                                                <div class="col-sm-12">
+                                                                                    <button type="button" value="Create Account" class="btn btn-primary float-right mb-4" ng-click="SaveNew(register)">Submit</button>
                                                                                 </div>
                                                                             </div>
                                                                         </form>
@@ -275,19 +313,19 @@
                                                 </a>
                                                 <ul class="dropdown-menu">
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="Fares_and_payments.html">Check Fares</a>
+                                                        <a class="dropdown-item" href="UI/Fares_and_payments.html">Check Fares</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="Recharge.html">Recharge</a>
+                                                        <a class="dropdown-item" href="UI/Recharge.html">Recharge</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="Refund.html">Refund</a>
+                                                        <a class="dropdown-item" href="UI/Refund.html">Refund</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="Renewal.html">Renewals</a>
+                                                        <a class="dropdown-item" href="UI/Renewal.html">Renewals</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="Schedules.html">Schedules</a>
+                                                        <a class="dropdown-item" href="UI/Schedules.html">Schedules</a>
                                                     </li>
                                                 </ul>
                                             </li>-->
@@ -307,10 +345,24 @@
                                                     <a class="dropdown-item dropdown-toggle" href="#">
                                                         Ride with us
                                                     </a>
-
                                                     <ul class="dropdown-menu">
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="Products.html">Products</a>
+                                                            <a class="dropdown-item" href="BrandAmbassador.html">Brand Ambassador</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="BusinessOwner.html">Business Owner</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="DriverRegistration.html">Driver</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="FleetOwner.html">Fleet Owner</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="TicketAgent.html">Ticket Agent</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="VehicleOwner.html">Vehicle Owner</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -332,7 +384,7 @@
 
                                                 <ul class="dropdown-menu">
                                                     <li class="dropdown">
-                                                        <a class="dropdown-item" href="Products.html">Products</a>
+                                                        <a class="dropdown-item" href="UI/Products.html">Products</a>
                                                     </li>
                                                 </ul>
                                             </li>-->
@@ -349,7 +401,7 @@
                                                             <a class="dropdown-item" href="Cards.html">Cards</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="LicensePage.html">Fleet Owner Licence</a>
+                                                            <a class="dropdown-item" href="Licenses.html">Fleet Owner Licence</a>
                                                         </li>
                                                         <li class="dropdown">
                                                             <a class="dropdown-item" href="Renewal.html">Fleet Owner Renewal Licence</a>
@@ -363,10 +415,10 @@
 
                                                     <ul class="dropdown-menu">
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="Cancellation.html">Cancel Journey</a>
+                                                            <a class="dropdown-item" href="UI/Cancellation.html">Cancel Journey</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="Cancellation.html">Cancel/Modify Ticket</a>
+                                                            <a class="dropdown-item" href="UI/Cancellation.html">Cancel/Modify Ticket</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -375,8 +427,8 @@
                                                         Contact Us/Help
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="ContactUs.html">Contact Us</a></li>
-                                                        <li><a class="dropdown-item" href="Complaints.html">Trouble Ticket/Complaints</a></li>
+                                                        <li><a class="dropdown-item" href="UI/ContactUs.html">Contact Us</a></li>
+                                                        <li><a class="dropdown-item" href="UI/Complaints.html">Trouble Ticket/Complaints</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -513,8 +565,8 @@
                         </ul>
 
                         <a href="../index.html" class="logo">
-                            <img height="2" alt="Porto Website Template" class="img-fluid" src="img/downloads/button-get-it-on-google-play.png" style="width:170px;height:60px;margin-top:20px;">
-                            <img height="2" alt="Porto Website Template" class="img-fluid" src="img/downloads/app-store-coupon-my-new.png" style="width:180px;height:70px;margin-top:20px;">
+                            <img height="2" alt="PaySmart Website Template" class="img-fluid" src="img/downloads/button-get-it-on-google-play.png" style="width:170px;height:60px;margin-top:20px;">
+                            <img height="2" alt="PaySmart Website Template" class="img-fluid" src="img/downloads/app-store-coupon-my-new.png" style="width:180px;height:70px;margin-top:20px;">
                         </a>
                     </div>
                 </div>
@@ -526,7 +578,7 @@
                     <div class="row">
                         <div class="col-lg-1">
                             <a href="../index.html" class="logo">
-                                <img alt="Porto Website Template" class="img-fluid" src="img/logo-footer.png">
+                                <img alt="PaySmart Website Template" class="img-fluid" src="img/logo-footer.png">
                             </a>
                         </div>
                         <div class="col-lg-11">
