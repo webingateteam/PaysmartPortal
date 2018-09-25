@@ -5,6 +5,13 @@ using System.Web;
 
 namespace PaySmartPortal.Models
 {
+
+    public class Verificationotp {
+
+        public string Mobileotp { get;set;}
+        public string Mobilenumber { get;set;}
+        public int Id { get;set;}
+    }
     public class VehicleBooking
     {
         public string flag { get; set; }
