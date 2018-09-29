@@ -14,7 +14,7 @@ namespace PaySmartPortal.Controllers
     {
         [HttpGet]
         [Route("api/License/GetLicense")]
-        public DataSet GetLicense(int LicenseCatId)
+        public DataSet GetLicense()
         {
             DataTable Tbl = new DataTable();
 
@@ -25,13 +25,13 @@ namespace PaySmartPortal.Controllers
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "GetLicensePageDetails";
+            cmd.CommandText = "PSGetLicensePageDetails";
             cmd.Connection = conn;
 
 
-            SqlParameter mm = new SqlParameter("@catId", SqlDbType.Int);
-            mm.Value = LicenseCatId;
-            cmd.Parameters.Add(mm);
+            //SqlParameter mm = new SqlParameter("@catId", SqlDbType.Int);
+            //mm.Value = LicenseCatId;
+            //cmd.Parameters.Add(mm);
 
             DataSet ds = new DataSet();
             SqlDataAdapter db = new SqlDataAdapter(cmd);
@@ -41,7 +41,7 @@ namespace PaySmartPortal.Controllers
 
             // int found = 0;
             return ds;
-        }
+        }       
 
         [HttpGet]
         public DataSet validatefleetowner(string fleetownercode)

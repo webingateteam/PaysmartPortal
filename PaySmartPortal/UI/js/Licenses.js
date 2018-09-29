@@ -92,7 +92,7 @@ var ctrl = app.controller('myCtrl', function ($scope, $http, $localStorage, $uib
         //    return;
         //}
         //$http.get('/api/LicensePage/GetLicense?LicenseCatId=' + $scope.licenseCatId.Id).then(function (response, req)
-        $http.get('/api/License/GetLicense?LicenseCatId=31').then(function (response, req) {
+        $http.get('/api/License/GetLicense').then(function (response, req) {
             $scope.License = response.data;
             if ($scope.License == null) {
                 alert('No license details configured for the selected license category. Please contact INTERBUS administartor.');

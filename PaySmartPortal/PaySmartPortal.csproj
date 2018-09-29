@@ -161,7 +161,9 @@
     <Content Include="UI\css\theme-elements.css" />
     <Content Include="UI\css\theme-shop.css" />
     <Content Include="UI\css\theme.css" />
+    <Content Include="UI\CustomerApp.html" />
     <Content Include="UI\DemoRequest.html" />
+    <Content Include="UI\DriverApp.html" />
     <Content Include="UI\DriverRegistration.html" />
     <Content Include="UI\EmailTemplates\1.txt" />
     <Content Include="UI\EmailTemplates\TicketFormat.html" />
@@ -3716,6 +3718,8 @@
     <Content Include="UI\vendor\simple-line-icons\README.md" />
     <Content Include="UI\vendor\simple-line-icons\scss\simple-line-icons.scss" />
     <Content Include="UI\vendor\simple-line-icons\yarn.lock" />
+    <Content Include="UI\Apks\customer_app.apk" />
+    <Content Include="UI\Apks\Driver_app.apk" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -472,12 +472,12 @@
                         <strong>Licence</strong>
                     </h2>
                     <div class="pricing-table row">
-                        <div class="col-md-3" ng-repeat="a in advertisement">
-                            <div class="plan most-popular">
-                                <h3>{{a.AdvertisementTitle}}<span>${{a.AdvertisementAmount}}</span></h3>
-                                <ul>
-                                    <li><strong>{{a.Description}}</strong></li>
-                                    <li><strong>{{a.Conclusion}}</strong></li>                                    
+                        <div class="col-md-3" ng-repeat="Lt in License.Table | filter: { LicenseCatId : 32}">
+                            <div class="plan most-popular" ng-repeat="p in License.Table2 | filter:{ LicenseId: Lt.Id }" ng-init="selType=f">
+                                <h3>{{Lt.LicenseType}}<span>${{p.UnitPrice}}</span></h3>
+                                <ul ng-repeat="f in License.Table1 | filter:{ LicenseTypeId: Lt.Id }">
+                                    <li><strong>{{f.FeatureLabel}}</strong></li>
+                                    <li><strong>{{f.FeatureValue}}</strong></li>                                    
                                 </ul>
                                 <button class="btn btn-lg btn-primary" id="buy" type="button" data-target="#Modal-header-Secondary" data-toggle="modal" ng-click="SetLicensedetails(License, Lt);">Buy Now</button>
                             </div>
@@ -561,7 +561,7 @@
                         </div>
                     </div>
                     <div class="pricing-table row">
-                        <div class="col-md-3" ng-repeat="Lt in License.Table">
+                        <div class="col-md-3" ng-repeat="Lt in License.Table | filter: { LicenseCatId : 31}">
                             <div class="plan most-popular" ng-repeat="p in License.Table2 | filter:{ LicenseId: Lt.Id }" ng-init="selType=f">
                                 <h3>{{Lt.LicenseType}}<span>${{p.UnitPrice}}</span></h3>
                                 <ul ng-repeat="f in License.Table1 | filter:{ LicenseTypeId: Lt.Id }">
