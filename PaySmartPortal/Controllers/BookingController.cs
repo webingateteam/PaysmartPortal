@@ -258,6 +258,7 @@ namespace PaySmartPortal.Controllers
 
                 #region Mobile OTP
                 string eotp = dt.Rows[0]["bookingNumber"].ToString();
+                string potp = dt.Rows[0]["OTP"].ToString();
                 //string totp = dt.Rows[0]["bookingNumber1"].ToString();
                 if (eotp != null)
                 {
@@ -288,8 +289,8 @@ namespace PaySmartPortal.Controllers
                                                                             <td style=\""font-family:'Zurich BT',Arial,Helvetica,sans-serif;font-size:15px;text-align:left;line-height:normal;background-color:#F0F8FF;\"" >
 <div style='padding:10px;border:#0000FF solid 2px;'>    <br /><br />
                                                                              
-                                                       Your Vehicle is Booked:<h3>" + eotp + @" </h3>
-                                                       
+                                                       Your Vehicle is Booked:<h3>" + eotp + @" </h3> <br />
+                                                        Your One Time Password :<h3>" + potp + @" </h3>
 
                                                         If you didn't make this request, <a href='http://154.120.237.198:52800'>click here</a> to cancel.
 
@@ -354,6 +355,64 @@ namespace PaySmartPortal.Controllers
             //    SqlConnection.ClearPool(conn);
             //}
             return dt;
+        }
+
+        [HttpPost]
+        [Route("api/VehicleBooking/PSInsUpdDelMOTPverification_Getalif")]
+        public DataTable OTPVerifying( Verificationotp v)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection();
+            StringBuilder str = new StringBuilder();
+
+            try
+            {
+
+                conn.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["btposdb"].ToString();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PSInsUpdDelMOTPverification_Getalif";
+
+                cmd.Connection = conn;
+
+
+                SqlParameter i = new SqlParameter("@Id", SqlDbType.Int);
+                i.Value = v.Id;
+                cmd.Parameters.Add(i);
+
+                //SqlParameter q1 = new SqlParameter("@Email", SqlDbType.VarChar, 50);
+                //q1.Value = ocr.Email;
+                //cmd.Parameters.Add(q1);
+
+                SqlParameter e = new SqlParameter("@Mobileotp", SqlDbType.VarChar, 10);
+                e.Value = v.Mobileotp;
+                cmd.Parameters.Add(e);
+
+                SqlParameter c = new SqlParameter("@Mobilenumber", SqlDbType.VarChar, 20);
+                c.Value = v.Mobilenumber;
+                cmd.Parameters.Add(c);
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                //conn.Close();
+                //traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "SavePostlist1 successful....");
+
+            }
+            catch (Exception ex)
+            {
+               // traceWriter.Trace(Request, "0", TraceLevel.Error, "{0}", "SavePostlist1...." + ex.Message.ToString());
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.OK, ex.Message));
+            }
+            finally
+            {
+                conn.Close();
+                //conn.Dispose();
+                //SqlConnection.ClearPool(conn);
+            }
+            return dt;
+
         }
     }
 }

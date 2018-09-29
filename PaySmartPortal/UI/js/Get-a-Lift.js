@@ -642,6 +642,61 @@ app.controller('mapCtrl', function ($scope, $http) {
     }
     $scope.range = range;
     $scope.whenselection = function () {
-       
+
     }
+    $scope.Bookingconfirmation = function () {
+        var reqs = {
+            Id: $scope.initdata[0].Id,
+            Mobilenumber: $scope.initdata[0].mno,
+            Mobileotp: $scope.OTP,
+        };
+        var breq = {
+            method: 'POST',
+            url: '/api/VehicleBooking/PSInsUpdDelMOTPverification_Getalif',
+            data: reqs
+        }
+        $http(breq).then(function (res) {
+            $scope.bookd = res.data[0];
+            $scope.bookdd = 1;
+            $scope.confirmd = null;
+            $scope.getDirectionsvehicle();
+            //$scope.confirmdetails();
+           
+        }, function (eer) {
+            alert('Selection src/dest are wrong...')
+        });
+        }
+    $scope.getDirectionsvehicle = function () {
+       
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('maptt'), {
+            zoom: 14,
+            center: { lat: 17.3850, lng: 78.4867 }
+        });
+        directionsDisplay.setMap(map);
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            var selectedMode = 'DRIVING';
+            directionsService.route({
+                origin: $scope.pickupPoint_name,  // Haight.
+                destination: $scope.droppoint_name,  // Ocean Beach.
+
+                travelMode: google.maps.TravelMode[selectedMode]
+            }, function (response, status) {
+                if (status == 'OK') {
+                    directionsDisplay.setDirections(response);
+                    directionsDisplay.setMap($scope.map);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+            //End Road Map
+        }
+    }
+    $scope.goBackvconfirm = function () {
+        $scope.bookdd = null;
+        $scope.confirmd = 1;
+    }
+   
 });
