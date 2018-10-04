@@ -414,5 +414,57 @@ namespace PaySmartPortal.Controllers
             return dt;
 
         }
+
+
+        [HttpGet]
+        [Route("api/Booking/GetnearestVehicleslist")]
+        public DataTable GetnearestVehiclelist(string lat,string lag)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection();
+            StringBuilder str = new StringBuilder();
+
+            try
+            {
+
+                conn.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["btposdb"].ToString();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PSGetNearestVehilcelatlg";
+
+                cmd.Connection = conn;
+
+
+                SqlParameter i = new SqlParameter("@lat", SqlDbType.VarChar);
+                i.Value = lat;
+                cmd.Parameters.Add(i);
+
+                SqlParameter lg = new SqlParameter("@lag", SqlDbType.VarChar);
+                lg.Value = lag;
+                cmd.Parameters.Add(lg);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                //conn.Close();
+                //traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "SavePostlist1 successful....");
+
+            }
+            catch (Exception ex)
+            {
+                // traceWriter.Trace(Request, "0", TraceLevel.Error, "{0}", "SavePostlist1...." + ex.Message.ToString());
+                //throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.OK, ex.Message));
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+                //conn.Dispose();
+                //SqlConnection.ClearPool(conn);
+            }
+            return dt;
+
+        }
     }
 }

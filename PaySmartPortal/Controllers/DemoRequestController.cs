@@ -99,8 +99,8 @@ namespace PaySmartPortal.Controllers
 
                         string samplemail = @"<div>
                                          <p>Hi,</p>
-                                         <p>Thanks for showing your interest for PaySmart. Our sales representative will connect with you shortly with demo credentials and links.</p>
-                                        <p>If you need a demo of our product you can sign up on this link to get immediate access to it. <a href='http://localhost:33877/UI/DemoRequest.html'>Demo Link</a></p>
+                                         <p>Thanks for showing your interest in PaySmart. Our sales representative will connect with you shortly with demo credentials and links.</p>
+                                        <p>If you need a demo of our product you can sign up on this link to get immediate access to it. <a href='http://196.27.119.221:53800/UI/DemoRequest.html'>Demo Link</a></p>
                                             <p>Thanks,<br/>PaySmart</p>
                                            
 
