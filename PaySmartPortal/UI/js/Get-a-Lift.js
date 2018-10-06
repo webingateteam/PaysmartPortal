@@ -1,8 +1,9 @@
-﻿var app = angular.module('myApp', ['google-maps','vsGoogleAutocomplete']);
+﻿var app = angular.module('myApp', ['google-maps', 'vsGoogleAutocomplete']);
 app.controller('mapCtrl', function ($scope, $http) {
     $scope.selectloc = 1;
     $scope.Active = '0';
     var d = '';
+    //var vlatlg = '';
     //$scope.pickupPoint_name = "Motinagar,Gayathi Apartments,hyderabad";
     $scope.selectpick = "Motinagar,Gayathi Apartments,hyderabad";
     $scope.selectdrop = "Motinagar,Gayathi Apartments,hyderabad";
@@ -23,7 +24,10 @@ app.controller('mapCtrl', function ($scope, $http) {
             alert('Please Enetr Mobile Number');
             return;
         }
-
+        if ($scope.modepay == null) {
+            alert('Please Select Mode of Payment');
+            return;
+        }
         var req = {
             Src:$scope.pickupPoint_name,
             Dest: $scope.droppoint_name,
@@ -44,6 +48,7 @@ app.controller('mapCtrl', function ($scope, $http) {
             VechId: '256',
             flag:'I'
         };
+  
         var breq = {
             method: 'POST',
             url: '/api/VehicleBooking/SaveBookingDetails',
@@ -210,6 +215,7 @@ app.controller('mapCtrl', function ($scope, $http) {
     }
     //End for Dropedit map creation
     $scope.getcurrentloc = function () {
+        
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (p) {
                 var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
@@ -514,6 +520,15 @@ app.controller('mapCtrl', function ($scope, $http) {
         $scope.editpickup = null;
     }
     $scope.selecttypevehicle = function () {
+        if ($scope.pickupPoint_name == null) {
+            alert('Please select Pickup Location')
+            return
+        }
+        if ($scope.droppoint_name == null) {
+            alert('Please select Drop Location')
+            return
+        }
+
         $scope.selectpick = $scope.pickupPoint_name;
         $scope.selectdrop = $scope.droppoint_name;
         $scope.getDirections();
