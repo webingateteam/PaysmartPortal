@@ -81,12 +81,13 @@
                                             </li>
                                             <li class="nav-item dropdown">                                              
                                                     <a class="dropdown-item dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Country
-                                                       
+                                                        Country                                                       
                                                     </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownLanguage" ng-repeat="m in Country">
-                                                        <a class="dropdown-item" href="#"><img src="{{m.FlagLocation}}" class="flag fa-flag-checkered" alt="" /> {{m.Name}}</a>
-                                                    </div>
+                                                    <ul class="dropdown-menu">
+                                                    <li ng-repeat="m in Country">
+                                                        <a class="dropdown-item" href="#"><img src="UI\{{m.FlagLocation}}" alt="" /> {{m.Name}}</a>
+                                                    </li>
+                                                </ul>
                                                
                                             </li>
                                             <li class="dropdown">
