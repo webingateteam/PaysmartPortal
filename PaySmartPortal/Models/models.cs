@@ -16,6 +16,7 @@ namespace PaySmartPortal.Models
     {
         public string flag { get; set; }
         public int Id { get; set; }
+        public int UserId { get; set; }
         public int CompanyId { get; set; }
         public int BNo { get; set; }
         public string BookingType { get; set; }

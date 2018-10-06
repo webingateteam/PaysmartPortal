@@ -16,54 +16,56 @@ namespace PaySmartPortal.Controllers
     public class BookingController : ApiController
     {
         [HttpPost]
-        [Route("api/VehicleBooking/AvailableVehicles")]
-        public DataTable AvailableVehicles(VehicleBooking vb)
+        [Route("api/Booking/AvailableVehicles")]
+        public DataSet AvailableVehicles(VehicleBooking vb)
         {
-            LogTraceWriter traceWriter = new LogTraceWriter();
+            DataSet ds = new DataSet();
+            //LogTraceWriter traceWriter = new LogTraceWriter();
             SqlConnection conn = new SqlConnection();
             StringBuilder str = new StringBuilder();
             DataTable dt = new DataTable();
             try
             {
 
-                traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "AvailableVehicles....");
-
-                str.Append("MobileNo:" + vb.CustomerPhoneNo + ",");
+                //traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "AvailableVehicles....");
+                
                 str.Append("lat:" + vb.SrcLatitude + ",");
                 str.Append("lng:" + vb.SrcLongitude + ",");
                 str.Append("vehicleGroupId:" + vb.VehicleGroupId + ",");
 
-                traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "Input sent...." + str.ToString());
+               // traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "Input sent...." + str.ToString());
 
                 conn.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["btposdb"].ToString();
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "HVgetnearestvehicles";
-                cmd.Parameters.Add("@Mobilenumber", SqlDbType.VarChar, 50).Value = vb.CustomerPhoneNo;
+
+                cmd.Parameters.Add("@VehicleGroupId", SqlDbType.Float).Value = vb.VehicleGroupId;
+                cmd.Parameters.Add("@UserId", SqlDbType.Float).Value = vb.UserId;
+                cmd.Parameters.Add("@VehicleTypeId", SqlDbType.Float).Value = vb.VehicleTypeId;
                 cmd.Parameters.Add("@lat", SqlDbType.Float).Value = vb.SrcLatitude;
-                cmd.Parameters.Add("@lng", SqlDbType.Float).Value = vb.SrcLongitude;
-                cmd.Parameters.Add("@vehicleGroupId", SqlDbType.Int).Value = vb.VehicleGroupId;
+                cmd.Parameters.Add("@lng", SqlDbType.Float).Value = vb.SrcLongitude;                
 
                 cmd.Connection = conn;
-                DataSet ds = new DataSet();
+                
                 SqlDataAdapter db = new SqlDataAdapter(cmd);
                 db.Fill(ds);
-                dt = ds.Tables[0];
-                traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "AvailableVehicles successful....");
+               // dt = ds.Tables[0];
+                //traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "AvailableVehicles successful....");
 
             }
             catch (Exception ex)
             {
-                traceWriter.Trace(Request, "0", TraceLevel.Error, "{0}", "AvailableVehicles...." + ex.Message.ToString());
-                //throw ex;
+                //traceWriter.Trace(Request, "0", TraceLevel.Error, "{0}", "AvailableVehicles...." + ex.Message.ToString());
+                throw ex;
                 //throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message));
-                dt.Columns.Add("Code");
-                dt.Columns.Add("description");
-                DataRow dr = dt.NewRow();
-                dr[0] = "ERR001";
-                dr[1] = ex.Message;
-                dt.Rows.Add(dr);
+                //dt.Columns.Add("Code");
+                //dt.Columns.Add("description");
+                //DataRow dr = dt.NewRow();
+                //dr[0] = "ERR001";
+                //dr[1] = ex.Message;
+                //dt.Rows.Add(dr);
             }
             finally
             {
@@ -71,7 +73,7 @@ namespace PaySmartPortal.Controllers
                 conn.Dispose();
                 SqlConnection.ClearPool(conn);
             }
-            return dt;
+            return ds;
         }
 
 
@@ -414,5 +416,57 @@ namespace PaySmartPortal.Controllers
             return dt;
 
         }
+        [HttpGet]
+        [Route("api/Booking/GetnearestVehicleslist")]
+        public DataTable GetnearestVehiclelist(string lat, string lag)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection();
+            StringBuilder str = new StringBuilder();
+
+            try
+            {
+
+                conn.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["btposdb"].ToString();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PSGetNearestVehilcelatlg";
+
+                cmd.Connection = conn;
+
+
+                SqlParameter i = new SqlParameter("@lat", SqlDbType.VarChar);
+                i.Value = lat;
+                cmd.Parameters.Add(i);
+
+                SqlParameter lg = new SqlParameter("@lag", SqlDbType.VarChar);
+                lg.Value = lag;
+                cmd.Parameters.Add(lg);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                //conn.Close();
+                //traceWriter.Trace(Request, "0", TraceLevel.Info, "{0}", "SavePostlist1 successful....");
+
+            }
+            catch (Exception ex)
+            {
+                // traceWriter.Trace(Request, "0", TraceLevel.Error, "{0}", "SavePostlist1...." + ex.Message.ToString());
+                //throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.OK, ex.Message));
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+                //conn.Dispose();
+                //SqlConnection.ClearPool(conn);
+            }
+            return dt;
+
+        }
+
+
     }
 }

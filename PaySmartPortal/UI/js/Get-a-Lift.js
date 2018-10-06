@@ -59,7 +59,7 @@ app.controller('mapCtrl', function ($scope, $http) {
         });
     }
     //Begin Pickup point
-   
+
     google.maps.event.addDomListener(window, 'load', function () {
         var places = new google.maps.places.Autocomplete(document.getElementById('aad'));
         google.maps.event.addListener(places, 'place_changed', function () {
@@ -77,7 +77,7 @@ app.controller('mapCtrl', function ($scope, $http) {
             }
             //alert(mesg);
         });
-       
+
     });
     //end Pickup point
 
@@ -102,6 +102,8 @@ app.controller('mapCtrl', function ($scope, $http) {
 
     });
     //End Dropedit
+
+
     $scope.map = {
         control: {},
         center: {
@@ -229,7 +231,8 @@ app.controller('mapCtrl', function ($scope, $http) {
                     //var input = document.getElementById('latlng').value;
                     var latlngStr = dd.split(',', 2);
                     $scope.edtlat=latlngStr[0];
-                    $scope.edtlog=latlngStr[1];
+                    $scope.edtlog = latlngStr[1];
+                    vlist();
                     var latlng = { lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1]) };
                     geocoder.geocode({ 'location': latlng }, function (results, status) {
                         if (status === 'OK') {
@@ -268,6 +271,12 @@ app.controller('mapCtrl', function ($scope, $http) {
         } else {
             alert('Geo Location feature is not supported in this browser.');
         }
+        function vlist() {
+            $http.get('/api/Booking/GetnearestVehicleslist?lat=' + $scope.edtlat + '&lag=' + $scope.edtlog).then(function (res, req) {
+                $scope.listofv = res.data;
+            })
+        }
+        $scope.getDirections();
       
     }
     $scope.pickuppoint = function () {
@@ -397,10 +406,8 @@ app.controller('mapCtrl', function ($scope, $http) {
         });
 
 
-        //testing
         var request = {
             origin: new google.maps.LatLng($scope.srcLat, $scope.srcLon),//$scope.directions.origin,
-            //destination: new google.maps.LatLng($scope.destLat, $scope.destLon),//$scope.directions.destination,
             travelMode: google.maps.DirectionsTravelMode.DRIVING
         };
         directionsService.route(request, function (response, status) {
@@ -512,7 +519,7 @@ app.controller('mapCtrl', function ($scope, $http) {
         $scope.getDirections();
         $scope.selcttvehicle = 1;
         $scope.selectloc = null;
-        $scope.editpickup = null;
+        $scope.editpickup = null;       
     }
     $scope.gobackselecttypevehicle = function () {
         $scope.selcttvehicle = null;
@@ -566,6 +573,23 @@ app.controller('mapCtrl', function ($scope, $http) {
             } else {
                 window.alert('Directions request failed due to ' + status);
             }
+            var Avehicles = {
+                VehicleGroupId: 34,
+                UserId: 1,
+                VehicleTypeId: 67,
+                SrcLatitude: $scope.edtlat,
+                SrcLongitude: $scope.edtlog
+            }
+            var req = {
+                method: 'POST',
+                url: '/api/Booking/AvailableVehicles',
+                data: Avehicles
+            }
+            $http(req).then(function (res) {
+                $scope.list = res.data;
+            }, function (eer) {
+                alert('Selection src/dest are wrong...')
+            });
         });
         //End Road Map
     }
@@ -698,5 +722,8 @@ app.controller('mapCtrl', function ($scope, $http) {
         $scope.bookdd = null;
         $scope.confirmd = 1;
     }
+
+    
+ 
    
 });
