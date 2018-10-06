@@ -11,6 +11,7 @@ namespace PaySmartPortal.Models
         public string Mobileotp { get;set;}
         public string Mobilenumber { get;set;}
         public int Id { get;set;}
+        public string BNo {get;set;}
     }
     public class VehicleBooking
     {

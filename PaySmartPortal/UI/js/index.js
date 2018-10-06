@@ -150,6 +150,7 @@ var mycrtl1 = myapp1.controller('myCtrl', function ($scope, $http, $localStorage
 
         $http(req).then(function (res) {
             $scope.initdata = res.data;
+            $scope.Country = $scope.initdata.Table;
         });
     }
 

@@ -685,8 +685,9 @@ app.controller('mapCtrl', function ($scope, $http) {
     }
     $scope.Bookingconfirmation = function () {
         var reqs = {
-            Id: $scope.initdata[0].Id,
-            Mobilenumber: $scope.initdata[0].mno,
+            //Id: $scope.initdata[0].Id,
+            //Mobilenumber: $scope.initdata[0].mno,
+            BNo: $scope.initdata[0].bookingNumber,
             Mobileotp: $scope.OTP,
         };
         var breq = {

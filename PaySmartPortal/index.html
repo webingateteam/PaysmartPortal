@@ -79,16 +79,15 @@
                                                     GET DEMO NOW
                                                 </a>
                                             </li>
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <img src="UI/img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe
-                                                    <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownLanguage">
-                                                    <a class="dropdown-item" href="#"><img src="UI/img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe</a>
-                                                    <a class="dropdown-item" href="#"><img src="UI/img/blank.gif" class="flag flag-es" alt="English" /> Kenya</a>
-                                                    <a class="dropdown-item" href="#"><img src="UI/img/blank.gif" class="flag flag-fr" alt="English" /> South Africa</a>
-                                                </div>
+                                            <li class="nav-item dropdown">                                              
+                                                    <a class="dropdown-item dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Country
+                                                       
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownLanguage" ng-repeat="m in Country">
+                                                        <a class="dropdown-item" href="#"><img src="{{m.FlagLocation}}" class="flag fa-flag-checkered" alt="" /> {{m.Name}}</a>
+                                                    </div>
+                                               
                                             </li>
                                             <li class="dropdown">
                                                 <a class="dropdown-item dropdown-toggle active" href="index.html">
@@ -1283,6 +1282,20 @@
                                                 <div class="col-sm-8">
                                                     <input type="text" ng-model="d.Mobilenumber" class="form-control" placeholder="MOBILE NUMBER *" />
                                                 </div>
+                                            </div>
+                                            <div class="form-row" style="margin-top:10px;">
+                                                <div class="col-sm-12">
+                                                    <label><strong>User Type</strong></label>
+                                                    <select class="form-control" ng-model="d.UserType">
+                                                        <option value="">Select</option>
+                                                        <option value="1">Brand Ambassador</option>
+                                                        <option value="2">Business Owner</option>
+                                                        <option value="3">Driver</option>
+                                                        <option value="4">Fleet Owner</option>
+                                                        <option value="5">Ticket Agent</option>
+                                                        <option value="6">Vehicle Owner</option>
+                                                    </select>
+                                                </div>                                               
                                             </div>
                                             <div class="row">
                                                 <button type="button" class="btn btn-primary" ng-click="SaveDemo(d)" style="margin-top:10px;margin-left:28%;">GET DEMO NOW</button>
