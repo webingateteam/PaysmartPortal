@@ -9,7 +9,7 @@
     <title>PaySmart Portal</title>
 
     <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Porto - Responsive HTML5 Template">
+    <meta name="description" content="PaySmart - Responsive HTML5 Template">
     <meta name="author" content="okler.net">
 
     <!-- Favicon -->
@@ -54,7 +54,7 @@
     <script src="UI/vendor/modernizr/modernizr.min.js"></script>
 
 </head>
-<body>
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="GetConfigData()">
     <div class="body">
         <header id="header" class="header-narrow header-full-width" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 55, 'stickySetTop': '-55px', 'stickyChangeLogo': true}">
             <div class="header-body">
@@ -75,29 +75,216 @@
                                     <nav class="collapse">
                                         <ul class="nav nav-pills">
                                             <li class="dropdown">
-                                                <a class="dropdown-item dropdown-toggle" href="#">Partner with Us as</a>
+                                                <a class="active" href="UI/DemoRequest.html">
+                                                    GET DEMO NOW
+                                                </a>
+                                            </li>
+                                            <li class="nav-item dropdown">                                              
+                                                    <a class="dropdown-item dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Country                                                       
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                    <li ng-repeat="m in Country">
+                                                        <a class="dropdown-item" href="#"><img src="UI\{{m.FlagLocation}}" alt="" /> {{m.Name}}</a>
+                                                    </li>
+                                                </ul>
+                                               
+                                            </li>
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle active" href="index.html">
+                                                    Book Now
+                                                </a>
                                                 <ul class="dropdown-menu">
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Driver</a>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Brand Ambassador</a>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Vehicle Owner</a>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item" href="#">Fleet Owner</a>
+                                                    <li>
+                                                        <a class="dropdown-item" href="UI/Get-a-Lift.html">Get-a-Lift</a>
+                                                        <a class="dropdown-item" href="UI/MeteredTaxi.html">Metered Taxi</a>
+                                                        <a class="dropdown-item" href="UI/HireVehicle.html">Hire Vehicle</a>
+                                                        <a class="dropdown-item" href="UI/BookTicket.html">Book Ticket</a>
+                                                        <a class="dropdown-item" href="Ui/Ambulance.html">Ambulance</a>
+                                                        <a class="dropdown-item" href="UI/Towing.html">Towing</a>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="nav">
-                                                <span class="ws-nowrap"><i class="fas fa-phone"></i> (123) 456-789</span>
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" href="#">Partner with Us as</a>
+                                                <ul class="dropdown-menu">                                                    
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/BrandAmbassador.html">Brand Ambassador</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/BusinessOwner.html">Business Owner</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/DriverRegistration.html">Driver</a>
+                                                    </li>                                                    
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/FleetOwner.html">Fleet Owner</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/TicketAgent.html">Ticket Agent</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/VehicleOwner.html">Vehicle Owner</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown" ng-hide="username == 0 || username == null">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    <i class="fas fa-user" href="#"></i> {{username}}
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/UserProfile.html">Profile</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" ng-click="LogoutUser()">Signout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-mega dropdown-mega-signin signin" id="headerAccount" ng-show="username == 0 || username == null">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    <i class="fas fa-user"></i> Sign In
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <div class="dropdown-mega-content">
+                                                            <div class="row">
+                                                                <div class="col">
+
+                                                                    <div class="signin-form">
+
+                                                                        <span class="dropdown-mega-sub-title">Sign In</span>
+
+                                                                        <form action="/" id="frmSignIn" method="post">
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <label>Username or E-mail Address</label>
+                                                                                    <input type="text" value="" class="form-control" tabindex="1" ng-model="UserName">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <a class="float-right mt-0 p-0" id="headerRecover" href="#">(Lost Password?)</a>
+                                                                                    <label>Password</label>
+                                                                                    <input type="password" value="" class="form-control" tabindex="2" ng-model="Password">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col-lg-6 pl-0">
+                                                                                    <span class="remember-box form-check">
+                                                                                        <label class="form-check-label" for="rememberme">
+                                                                                            <input class="form-check-input mr-2" type="checkbox" id="rememberme" name="rememberme">Remember Me
+                                                                                        </label>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="form-group col-lg-6 pr-0">
+                                                                                    <button type="button" class="btn btn-primary float-right mb-3" ng-click="Signin()">Login</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="sign-up-info">Don't have an account yet? <a href="#" id="headerSignUp" class="p-0 m-0 ml-1">Sign Up</a></p>
+
+                                                                    </div>
+
+                                                                    <div class="signup-form">
+                                                                        <span class="dropdown-mega-sub-title">Create Account</span>
+
+                                                                        <form action="/" id="frmSignUp" method="post">
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>First Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.FirstName" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Last Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.LastName" class="form-control" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>User Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Country</label>
+                                                                                    <div class="selector">
+                                                                                        <select class="form-control" ng-options="C.Name for C in initdata.Table track by C.Id" ng-model="register.Country">
+                                                                                            <option value="">Select</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Email</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.Email" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Mobile Number</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.Mobilenumber" class="form-control" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Password</label>
+                                                                                    <input type="password" value="" class="form-control" ng-model="register.Password" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Re-enter Password</label>
+                                                                                    <input type="password" value="" class="form-control" ng-model="register.RePassword" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <br />
+                                                                            <!--<span class="mt-3 mb-3 line-thru text-center text-uppercase">
+                                                                                <span>OR</span>
+                                                                            </span>
+                                                                            <div class="mb-1 text-center">
+                                                                                <a class="btn btn-facebook mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-facebook-f"></i></a>
+                                                                                <a class="btn btn-twitter mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-twitter"></i></a>
+                                                                            </div>-->
+
+                                                                            <div class="form-row">
+                                                                                <div class="col-sm-12">
+                                                                                    <button type="button" value="Create Account" class="btn btn-primary float-right mb-4" ng-click="SaveNew(register)">Submit</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="log-in-info">Already have an account? <a href="#" id="headerSignIn" class="p-0 m-0 ml-1">Log In</a></p>
+                                                                    </div>
+
+                                                                    <div class="recover-form">
+                                                                        <span class="dropdown-mega-sub-title">Reset My Password</span>
+                                                                        <p>Complete the form below to receive an email with the authorization code needed to reset your password.</p>
+
+                                                                        <form action="/" id="frmResetPassword" method="post">
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <label>E-mail Address</label>
+                                                                                    <input type="text" value="" class="form-control form-control-lg">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <input type="submit" value="Submit" class="btn btn-primary float-right mb-3" data-loading-text="Loading...">
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="log-in-info">Already have an account? <a href="#" id="headerRecoverCancel" class="p-0 m-0 ml-1">Log In</a></p>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </nav>
                                 </div>
-                                <div class="header-search d-none d-md-block">
+                                <!--<div class="header-search d-none d-md-block">
                                     <form id="searchForm" action="page-search-results.html" method="get">
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="q" id="q" placeholder="Search..." required>
@@ -106,14 +293,7 @@
                                             </span>
                                         </div>
                                     </form>
-                                </div>
-                                <nav class="header-nav-top">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item d-none d-sm-block">
-                                            <a class="nav-link" href="UI/Registration.html"><i class="fas fa-angle-right"></i>Sign In/Sign Up</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                </div>-->
                             </div>
 
                             <div class="header-row">
@@ -126,7 +306,7 @@
                                                         Home
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
+                                                <!--<li class="dropdown">
                                                     <a class="dropdown-item dropdown-toggle" href="#">
                                                         Fares/Payments
                                                     </a>
@@ -135,16 +315,98 @@
                                                             <a class="dropdown-item" href="UI/Fares_and_payments.html">Check Fares</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/pages-coming-soon1.html">Recharge</a>
+                                                            <a class="dropdown-item" href="UI/Recharge.html">Recharge</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/refund.html">Refund</a>
+                                                            <a class="dropdown-item" href="UI/Refund.html">Refund</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/pages-coming-soon1.html">Renewals</a>
+                                                            <a class="dropdown-item" href="UI/Renewal.html">Renewals</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/shedules.html">Schedules</a>
+                                                            <a class="dropdown-item" href="UI/Schedules.html">Schedules</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>-->
+                                                
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Drive with us
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Ride with us
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/BrandAmbassador.html">Brand Ambassador</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/BusinessOwner.html">Business Owner</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/DriverRegistration.html">Driver</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/FleetOwner.html">Fleet Owner</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/TicketAgent.html">Ticket Agent</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/VehicleOwner.html">Vehicle Owner</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Travel Tickets
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/BookTicket.html">Book a Ticket</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <!--<li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Online Shop
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>-->
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Licenses
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/AdvertisementLicense.html">Advertisement Licence</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Cards.html">Cards</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Licenses.html">Fleet Owner Licence</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="UI/Renewal.html">Fleet Owner Renewal Licence</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -155,54 +417,20 @@
 
                                                     <ul class="dropdown-menu">
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="ui/cancellation.html">Cancel Journey</a>
+                                                            <a class="dropdown-item" href="UI/Cancellation.html">Cancel Journey</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a class="dropdown-item" href="ui/cancellation.html">Cancel/Modify Ticket</a>
+                                                            <a class="dropdown-item" href="UI/Cancellation.html">Cancel/Modify Ticket</a>
                                                         </li>
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown">
                                                     <a class="dropdown-item dropdown-toggle" href="#">
-                                                        Online Shop
-                                                    </a>
-
-                                                    <ul class="dropdown-menu">
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/Products.html">Products</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="productsshown.html">
-                                                        Licenses
-                                                    </a>
-
-                                                    <ul class="dropdown-menu">
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/shortcode-pricing-tables.html">Advertisement Licence</a>
-                                                        </li>
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/shortcode-pricing-tables.html">BT POS Licence</a>
-                                                        </li>
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/cards.html">Cards</a>
-                                                        </li>
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/LicensePage.html">Fleet Owner Licence</a>
-                                                        </li>
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item" href="UI/Renewal.html">Fleet Owner Renewal Licence</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="#">
-                                                        Contact Us
+                                                        Contact Us/Help
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="contact-us.html">Contact Us</a></li>
-                                                        <li><a class="dropdown-item" href="contact-us-advanced.php">Trouble Ticket/Complaints</a></li>
+                                                        <li><a class="dropdown-item" href="UI/ContactUs.html">Contact Us</a></li>
+                                                        <li><a class="dropdown-item" href="UI/Complaints.html">Trouble Ticket/Complaints</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -228,13 +456,13 @@
 
             <div class="slider-with-overlay">
 
-                <div class="slider-container rev_slider_wrapper" style="height: 660px;">
+                <div class="slider-container rev_slider_wrapper" style="height:660px;">
                     <div id="revolutionSlider" class="slider rev_slider" data-version="5.4.7"
                          data-plugin-revolution-slider data-plugin-options="{'delay': 9000, 'gridwidth': 1170, 'gridheight': 660, 'responsiveLevels': [4096,1200,992,500]}">
                         <ul>
-                            
+
                             <li data-transition="fade">
-                                <img src="UI/img/slides/slide-bg.jpg"
+                                <img src="UI/img/downloads/cab2.png"
                                      alt=""
                                      data-bgposition="center center"
                                      data-bgfit="cover"
@@ -244,43 +472,44 @@
                                      data-x="['550','550','550','570']"
                                      data-y="90"
                                      data-start="3900"
-                                     data-transform_in="x:[-300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
 
-                                <div class="tp-caption top-label"
+                                <!--<div class="tp-caption top-label"
                                      data-x="['610','610','610','630']"
                                      data-y="80"
                                      data-start="3900"
-                                     data-transform_in="y:[-300%];opacity:0;s:500;">DO YOU NEED A NEW</div>
+                                     data-transform_in="y:[-300%];opacity:0;s:500;">DO YOU NEED A </div>-->
 
-                                <div class="tp-caption"
+                                <!--<div class="tp-caption"
                                      data-x="['870','870','870','890']"
                                      data-y="90"
                                      data-start="3900"
-                                     data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>
+                                     data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
 
                                 <div class="tp-caption main-label"
-                                     data-x="['520','520','520','540']"
+                                     data-x="['510','510','510','530']"
                                      data-y="100"
-                                     data-start="3950"
+                                     data-start="950"
                                      data-whitespace="nowrap"
                                      data-transform_in="y:[100%];s:500;"
                                      data-transform_out="opacity:0;s:500;"
-                                     data-mask_in="x:0px;y:0px;">WEB DESIGN?</div>
+                                     data-fontsize="['37','37','37','47']"
+                                     data-mask_in="x:0px;y:0px;">VEHICLE FOR HIRE</div>
 
                                 <div class="tp-caption bottom-label"
-                                     data-x="['550','550','550','570']"
-                                     data-y="170"
-                                     data-start="4200"
+                                     data-x="['500','500','500','520']"
+                                     data-y="150"
+                                     data-start="1000"
                                      data-fontsize="['20','20','20','30']"
-                                     data-transform_in="y:[100%];opacity:0;s:500;">Check out our options and features.</div>
+                                     data-transform_in="y:[100%];opacity:0;s:500;">Check out our hire vehicle options and features.</div>
 
-                                <div class="tp-caption"
+                                <!--<div class="tp-caption"
                                      data-x="['1150','1150','1150','1170']"
                                      data-y="350"
                                      data-start="2500"
-                                     data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1300;"><img src="UI/img/slides/slide-concept-2-1.png" alt=""></div>
+                                     data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1300;"><img src="UI/img/slides/slide-concept-2-1.png" alt=""></div>-->
 
-                                <div class="tp-caption"
+                                <!--<div class="tp-caption"
                                      data-x="['1200','1200','1200','1220']"
                                      data-y="300"
                                      data-start="3500"
@@ -302,33 +531,33 @@
                                      data-x="['850','850','850','870']"
                                      data-y="150"
                                      data-start="3950"
-                                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="UI/img/slides/slide-concept-2-5.png" alt=""></div>
+                                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="UI/img/slides/slide-concept-2-5.png" alt=""></div>-->
 
                                 <div class="tp-caption blackboard-text"
                                      data-x="['910','910','910','930']"
                                      data-y="320"
-                                     data-start="3950"
+                                     data-start="1200"
                                      data-fontsize="['37','37','37','47']"
-                                     data-transform_in="y:[300%];opacity:0;s:300;">Think</div>
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Single</div>
 
                                 <div class="tp-caption blackboard-text"
                                      data-x="['910','910','910','930']"
                                      data-y="370"
-                                     data-start="4150"
+                                     data-start="1200"
                                      data-fontsize="['47','47','47','57']"
-                                     data-transform_in="y:[300%];opacity:0;s:300;">Outside</div>
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Solution</div>
 
                                 <div class="tp-caption blackboard-text"
                                      data-x="['910','910','910','930']"
                                      data-y="420"
-                                     data-start="4350"
+                                     data-start="1200"
                                      data-fontsize="['32','32','32','42']"
-                                     data-transform_in="y:[300%];opacity:0;s:300;">The box :)</div>
+                                     data-transform_in="y:[300%];opacity:0;s:300;">For Travel Needs</div>
 
 
                             </li>
                             <li data-transition="fade">
-                                <img src="UI/img/slides/slide-bg-5.jpg"
+                                <img src="UI/img/downloads/MobileApp.jpg"
                                      alt=""
                                      data-bgposition="center center"
                                      data-bgfit="cover"
@@ -336,44 +565,634 @@
                                      class="rev-slidebg">
 
                                 <div class="tp-caption"
-                                     data-x="['177','177','center','center']" data-hoffset="['0','0','-150','-220']"
+                                     data-x="['510','510','510','530']" data-hoffset="['0','0','-150','-220']"
                                      data-y="280"
-                                     data-start="1000"
-                                     data-transform_in="x:[-300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
 
-                                <div class="tp-caption top-label"
-                                     data-x="['227','227','center','center']"
-                                     data-y="272"
+                                <!--<div class="tp-caption top-label"
+                                     data-x="['610','610','610','630']"
+                                     data-y="80"
                                      data-fontsize="['24','24','24','36']"
                                      data-start="500"
-                                     data-transform_in="y:[-300%];opacity:0;s:500;">DO YOU NEED A NEW</div>
-
-                                <div class="tp-caption"
-                                     data-x="['480','480','center','center']" data-hoffset="['0','0','150','220']"
-                                     data-y="280"
-                                     data-start="1000"
-                                     data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>
-
+                                     data-transform_in="y:[-300%];opacity:0;s:500;">Mobile App for All Services</div>-->
                                 <div class="tp-caption main-label"
-                                     data-x="['135','135','center','center']"
-                                     data-y="['310','310','310','310']"
+                                     data-x="['510','510','510','530']"
+                                     data-y="80"
                                      data-start="1500"
                                      data-whitespace="nowrap"
-                                     data-fontsize="['62','62','62','82']"
+                                     data-fontsize="['30','30','30','30']"
                                      data-transform_in="y:[100%];s:500;"
                                      data-transform_out="opacity:0;s:500;"
-                                     data-mask_in="x:0px;y:0px;">WEB DESIGN?</div>
+                                     data-mask_in="x:0px;y:0px;">Mobile App Services</div>
+                                <!--<div class="tp-caption"
+             data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+             data-y="90"
+             data-start="1000"
+             data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <!--<div class="tp-caption main-label"
+             data-x="['520','520','520','540']"
+             data-y="100"
+             data-start="1500"
+             data-whitespace="nowrap"
+             data-fontsize="['62','62','62','82']"
+             data-transform_in="y:[100%];s:500;"
+             data-transform_out="opacity:0;s:500;"
+             data-mask_in="x:0px;y:0px;">CAB FOR RIDE</div>-->
 
                                 <div class="tp-caption bottom-label"
-                                     data-x="['185','185','center','center']"
-                                     data-y="['380','380','380','380']"
-                                     data-start="2000"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
                                      data-fontsize="['20','20','20','30']"
-                                     data-transform_in="y:[100%];opacity:0;s:500;">Check out our options and features.</div>
+                                     data-transform_in="y:[100%];opacity:0;s:500;">A Single Mobile App for All Your Travel Needs.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1050','1050','1050','1090']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Simple</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1050','1050','1050','1090']"
+                                     data-y="270"
+                                     data-start="3850"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Easy</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1050','1050','1050','1090']"
+                                     data-y="320"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Smart</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1050','1050','1050','1090']"
+                                     data-y="370"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Convenient</div>
+
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/downloads/earn.jpg"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
+
+                                <!--<div class="tp-caption top-label"
+                                     data-x="['610','610','610','630']"
+                                     data-y="80"
+                                     data-fontsize="['24','24','24','36']"
+                                     data-start="500"
+                                     data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+        data-x="['510','510','510','530']"
+        data-y="80"
+        data-start="1500"
+        data-whitespace="nowrap"
+        data-fontsize="['30','30','30','30']"
+        data-transform_in="y:[100%];s:500;"
+        data-transform_out="opacity:0;s:500;"
+        data-mask_in="x:0px;y:0px;">JOIN AND EARN</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">Be part of the best travel solution as a partner.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">You can choose</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['900','900','900','940']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">To drive with paysmart</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Attach Vehicle</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="370"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Attach Fleet</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="420"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Be Brand Ambassador</div>
+
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/custom-header-bg.jpg"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"><img src="UI/img/downloads/license.png" alt=""></div>
+
+                                <!--<div class="tp-caption top-label"
+             data-x="['610','610','610','630']"
+             data-y="80"
+             data-fontsize="['24','24','24','36']"
+             data-start="500"
+             data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+                                     data-x="['510','510','510','530']"
+                                     data-y="80"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[100%];s:500;"
+                                     data-transform_out="opacity:0;s:500;"
+                                     data-mask_in="x:0px;y:0px;">LICENSE OPTIONS</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">Purchase solution customized as per your needs.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Register</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['900','900','900','940']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Upload Documents</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Get Approved</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="370"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Attach Fleet</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="420"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Start Earning</div>
+
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/downloads/booking.png"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
+
+                                <!--<div class="tp-caption top-label"
+             data-x="['610','610','610','630']"
+             data-y="80"
+             data-fontsize="['24','24','24','36']"
+             data-start="500"
+             data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+                                     data-x="['510','510','510','530']"
+                                     data-y="80"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[100%];s:500;"
+                                     data-transform_out="opacity:0;s:500;"
+                                     data-mask_in="x:0px;y:0px;">TICKET BOOKING</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">Booking a bus ticket is never so easy,before.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Seats selection</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['900','900','900','940']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Multiple payment options</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Vehicle Tracking</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="370"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">unlimited options</div>                                
+
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/downloads/cab2.png"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <!--<div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"><img src="UI/img/slides/slide-mobile-device.png" alt=""></div>-->
+
+                                <!--<div class="tp-caption top-label"
+             data-x="['610','610','610','630']"
+             data-y="80"
+             data-fontsize="['24','24','24','36']"
+             data-start="500"
+             data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+                                     data-x="['410','410','410','430']"
+                                     data-y="80"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[100%];s:500;"
+                                     data-transform_out="opacity:0;s:500;"
+                                     data-mask_in="x:0px;y:0px;">ATTACH VEHICLE/FLEET OWNER</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">Make the optimum usage of your fleet.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Register</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['900','900','900','940']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Upload Documents</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Get Approved</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="370"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Start Earning</div>
+                               
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/downloads/ambulance.jpg"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
+
+                                <!--<div class="tp-caption top-label"
+             data-x="['610','610','610','630']"
+             data-y="80"
+             data-fontsize="['24','24','24','36']"
+             data-start="500"
+             data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="80"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[100%];s:500;"
+                                     data-transform_out="opacity:0;s:500;"
+                                     data-mask_in="x:0px;y:0px;">AMBULANCE SERVICES</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">First aid saves life and delay damages.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Attach Ambulance</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['950','950','950','990']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Be a driver</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['950','950','950','990']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">App based booking</div>                               
+
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/downloads/towing.jpg"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <!--<div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"><img src="UI/img/slides/slide-mobile-device.png" alt=""></div>-->
+
+                                <!--<div class="tp-caption top-label"
+             data-x="['610','610','610','630']"
+             data-y="80"
+             data-fontsize="['24','24','24','36']"
+             data-start="500"
+             data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+                                     data-x="['430','430','430','450']"
+                                     data-y="80"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[100%];s:500;"
+                                     data-transform_out="opacity:0;s:500;"
+                                     data-mask_in="x:0px;y:0px;">TOWING SERVICES</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">we lift your broken carriers.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['900',''900','900','940']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">let us know location</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['900','900','900','940']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">and the drop point</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['930','930','930','950']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">we tow your stuff easily</div>                               
+
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/downloads/payments.jpg"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
+
+                                <!--<div class="tp-caption top-label"
+             data-x="['610','610','610','630']"
+             data-y="80"
+             data-fontsize="['24','24','24','36']"
+             data-start="500"
+             data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+                                     data-x="['470','470','470','490']"
+                                     data-y="80"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[100%];s:500;"
+                                     data-transform_out="opacity:0;s:500;"
+                                     data-mask_in="x:0px;y:0px;">PAYMENT OPTIONS</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">choose your convinient payment options.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">paysmart supports multiple</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['900','900','900','940']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">payment options like</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">cash,card,mobile money</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="370"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">net banking</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="420"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">ewallet</div>
+
+                            </li>
+                            <li data-transition="fade">
+                                <img src="UI/img/downloads/lenovo-laptop.jpg"
+                                     alt=""
+                                     data-bgposition="center center"
+                                     data-bgfit="cover"
+                                     data-bgrepeat="no-repeat"
+                                     class="rev-slidebg">
+
+                                <div class="tp-caption"
+                                     data-x="['450','450','450','470']" data-hoffset="['0','0','-150','-220']"
+                                     data-y="280"
+                                     data-start="500"
+                                     data-transform_in="x:[-300%];opacity:0;s:500;"></div>
+
+                                <!--<div class="tp-caption top-label"
+             data-x="['610','610','610','630']"
+             data-y="80"
+             data-fontsize="['24','24','24','36']"
+             data-start="500"
+             data-transform_in="y:[-300%];opacity:0;s:500;">Join and Earn</div>-->
+                                <!--<div class="tp-caption"
+        data-x="['870','870','870','890']" data-hoffset="['0','0','150','220']"
+        data-y="90"
+        data-start="1000"
+        data-transform_in="x:[300%];opacity:0;s:500;"><img src="UI/img/slides/slide-title-border.png" alt=""></div>-->
+                                <div class="tp-caption main-label"
+                                     data-x="['460','460','460','480']"
+                                     data-y="80"
+                                     data-start="1500"
+                                     data-whitespace="nowrap"
+                                     data-fontsize="['30','30','30','30']"
+                                     data-transform_in="y:[100%];s:500;"
+                                     data-transform_out="opacity:0;s:500;"
+                                     data-mask_in="x:0px;y:0px;">DASHBOARD MANAGEMENT</div>
+
+                                <div class="tp-caption bottom-label"
+                                     data-x="['450','450','450','470']"
+                                     data-y="130"
+                                     data-start="1800"
+                                     data-fontsize="['20','20','20','30']"
+                                     data-transform_in="y:[100%];opacity:0;s:500;">manage your business with single solution portal.</div>
+
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="220"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Manage Fleet </div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="270"
+                                     data-start="3750"
+                                     data-fontsize="['37','37','37','47']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Routes</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="320"
+                                     data-start="3850"
+                                     data-fontsize="['47','47','47','57']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Pricing</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="370"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Staff</div>
+                                <div class="tp-caption blackboard-text"
+                                     data-x="['1000','1000','1000','1040']"
+                                     data-y="420"
+                                     data-start="3900"
+                                     data-fontsize="['32','32','32','42']"
+                                     data-transform_in="y:[300%];opacity:0;s:300;">Upload existing fleet</div>
 
                             </li>
 
-                            <li data-transition="fade">
+                            
                         </ul>
                     </div>
                 </div>
@@ -384,14 +1203,14 @@
                         <div class="row align-items-center">
                             <div class="col-lg-8">
                                 <p>
-                                    The fastest way to grow your business with the leader in <em>Technology</em>
+                                    The fastest way to grow your business with the leader in <em>Travel Services</em>
                                     <span>Check out our options and features included.</span>
                                 </p>
                             </div>
                             <div class="col-lg-4">
                                 <div class="get-started text-left text-lg-right">
-                                    <a href="#" class="btn btn-lg btn-primary">Get Started Now!</a>
-                                    <div class="learn-more">or <a href="index.html">learn more.</a></div>
+                                    <a href="UI/Licenses.html" class="btn btn-lg btn-primary">Get Started Now!</a>
+                                    <div class="learn-more">or <a href="UI/Licenses.html">learn more.</a></div>
                                 </div>
                             </div>
                         </div>
@@ -399,26 +1218,101 @@
                     </div>
                 </div>
 
-                <div class="slider-contact-form">
-                    <div class="container" style="margin-top:100px">
-                        <div class="col-lg-3">
-                            
-                            <div class="row">
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Get-a-Lift</button></div>
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Hire Vehicle</button></div>
+                <div class="slider-contact-form mt-4">
+                    <div class="featured-boxes">
+                        <div class="row" style="margin-top:-50px;">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <div class="featured-box featured-box-primary">
+                                    <div class="box-content container">
+                                        <h4 class="heading-primary text-uppercase mb-3">Choose a service</h4>
+
+                                        <form action="/" id="frmSignIn" method="post">
+
+                                            <div class="form-row">
+                                                <div class="col-sm-6">
+                                                    <button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/Get-a-lift.html'">
+                                                        Get-a-Lift
+                                                    </button>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/HireVehicle.html'">Hire Vehicle</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/MeteredTaxi.html'">Metered Taxi</button></div>
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/BookTicket.html'">Book a Ticket</button></div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/Ambulance.html'">Ambulance</button></div>
+                                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-primary mb-2" onclick="window.location.href='UI/Towing.html'">Need Towing</button></div>
+                                            </div>                                           
+                                            <br />
+                                            <div class="row"></div>
+
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Metered Taxi</button></div>
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Book a Ticket</button></div>
+                        </div>
+                        <div class="row" style="margin-top:-40px;">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <div class="featured-box featured-box-primary">
+                                    <div class="box-content container">
+                                        <h4 class="heading-primary text-uppercase mb-3">Request a Demo</h4>
+
+                                        <form ng-model="d">
+                                            <div class="form-row">
+                                                <div class="col-sm-12">
+                                                    <input type="text" ng-model="d.Businessname" class="form-control" placeholder="BUSINESS NAME *"/>
+                                                </div>                                               
+                                            </div>
+                                            <div class="form-row" style="margin-top:10px;">
+                                            <div class="col-sm-12">
+                                                <input type="text" ng-model="d.Email" class="form-control" placeholder="EMAIL ADDRESS *" />
+                                            </div>
+                                            </div>
+                                            <div class="form-row" style="margin-top:10px;">
+                                                <div class="col-sm-4">    
+                                                    <select class="form-control" ng-model="d.LoginNo">
+                                                        <option value="">+91</option>
+                                                        <option value="+263">+263</option>
+                                                    </select>                                                           
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <input type="text" ng-model="d.Mobilenumber" class="form-control" placeholder="MOBILE NUMBER *" />
+                                                </div>
+                                            </div>
+                                            <div class="form-row" style="margin-top:10px;">
+                                                <div class="col-sm-12">
+                                                    <label><strong>User Type</strong></label>
+                                                    <select class="form-control" ng-model="d.UserType">
+                                                        <option value="">Select</option>
+                                                        <option value="1">Brand Ambassador</option>
+                                                        <option value="2">Business Owner</option>
+                                                        <option value="3">Driver</option>
+                                                        <option value="4">Fleet Owner</option>
+                                                        <option value="5">Ticket Agent</option>
+                                                        <option value="6">Vehicle Owner</option>
+                                                    </select>
+                                                </div>                                               
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="btn btn-primary" ng-click="SaveDemo(d)" style="margin-top:10px;margin-left:28%;">GET DEMO NOW</button>
+                                            </div>
+                                                <br />
+                                            <div class="row"></div>
+                                            
+
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Ambulance</button></div>
-                                <div class="col-sm-6"><button style="width:100%" type="button" class="btn btn-outline btn-primary mb-2">Need Towing</button></div>
-                            </div>
-                           
                         </div>
                     </div>
                 </div>
+               
             </div>
         </div>
 
@@ -427,30 +1321,259 @@
             <div class="row text-center">
                 <div class="col">
                     <h1 class="mb-2 word-rotator-title">
-                        Porto is
+                        Paysmart is
                         <strong class="inverted">
                             <span class="word-rotator" data-plugin-options="{'delay': 2000, 'animDelay': 300}">
                                 <span class="word-rotator-items">
-                                    <span>incredibly</span>
-                                    <span>especially</span>
-                                    <span>extremely</span>
+                                    <span>simple</span>
+                                    <span>easy</span>
+                                    <span>smart</span>
+                                    <span>efficient</span>
+                                    <span>innovative</span>
                                 </span>
                             </span>
                         </strong>
-                        beautiful and fully responsive.
+                         suite for all your travel needs.
                     </h1>
                     <p class="lead">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus suscipit molestie vestibulum.
+                        Paysmart offer technology solutions ranging from mobile app to portal, travel cards, ewallets, payment options, admin websites to cater to various travel needs of both customers and business partners.
                     </p>
                 </div>
             </div>
-
+            <hr class="tall" />
         </div>
+        
+        <section>
+            <div class="container" style="margin-top:20px;">
+                <h1 class="heading-primary" style="font-size:30px;">Services for Customer</h1>
+                <div class="row">                    
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Get-a-lyft</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-taxi"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Metered Taxi</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box dark">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Hire Vehicle</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Bus</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Ambulance</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box dark">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Towing</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="tall">
+        </section>
+        <section>
+            <div class="container" style="margin-top:20px;">
+                <h1 class="heading-primary" style="font-size:30px;">Easy Payments and Wallet</h1>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-amazon-pay"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Wallet</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-apple-pay"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Payments</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box dark">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Hire Vehicle</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Bus</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Ambulance</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box dark">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Towing</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="tall">
+        </section>
 
-
-
-        <div class="container">
-
+        <section>
+            <div class="container" style="margin-top:20px;">
+                <h1 class="heading-primary" style="font-size:30px;">Easy Bookings and Expense Management</h1>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Get-a-lyft</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-taxi"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Metered Taxi</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box dark">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Hire Vehicle</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Bus</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Ambulance</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature-box dark">
+                            <div class="feature-box-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="feature-box-info">
+                                <h4 class="mb-2">Towing</h4>
+                                <p class="mb-4">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <hr class="tall" />
+        </section>
+        
+        <div class="container" style="margin-top:20px;">
             <div class="row">
                 <div class="col-md-12">
                     <h2>Our <strong>Services</strong></h2>
@@ -459,157 +1582,258 @@
 
             <div class="row">
 
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="0">
-                        <div class="feature-box-icon">
-                            <i class="icon-layers icons"></i>
+                        <div class="col-md-3">
+                            <i><img src="UI/img/downloads/lenovo-laptop.jpg" alt="" style="width:200px;height:100px;"/></i>
                         </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Solution design</h4>
-                            <p class="mb-lg">We at Webingate provide solution design services for your business concepts and make your vision come true. Providing simplified and effective solutions is one of our core business.</p>
+                        <div class="col-md-9">                            
+                            <h4 class="mb-sm">Dashboard Management</h4>
+                            <p class="mb-lg">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="0">
-                        <div class="feature-box-icon">
-                            <i class="icon-calculator icons"></i>
+                        <div class="col-md-3">
+                            <i><img src="UI/img/downloads/4.jpg" alt="" style="width:200px;height:100px;" /></i>
                         </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Project development</h4>
-                            <p class="mb-lg">Webingate provides latest technology solutions with effeciency and easy of use for all your projects.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="600">
-                        <div class="feature-box-icon">
-                            <i class="icon-social-youtube icons"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Mobile apps developement</h4>
-                            <p class="mb-lg">To helps our clients reach the markets of next generation, Webingate offers wide range of Mobile application development solutons.</p>
+                        <div class="col-md-9">
+                            <h4 class="mb-sm">Statistics</h4>
+                            <p class="mb-lg">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-md">
-                <div class="col-md-4">
-                    <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                        <div class="feature-box-icon">
-                            <i class="icon-star icons"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Product design</h4>
-                            <p class="mb-lg">Webingate would conceptualize and design your envisioned products ranging from simple POS machines to state of the art business equipments and electronic products.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                        <div class="feature-box-icon">
-                            <i class="icon-drop icons"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Product development</h4>
-                            <p class="mb-lg">Webingate with its collaborative partners offers end-to-end product design and developement solutions along with the front end and product management software.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                        <div class="feature-box-icon">
-                            <i class="icon-mouse icons"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Application Testing</h4>
-                            <p class="mb-lg">Clients can use Webingate testing services to reduce the time, effort and budget on testing their end products. We offer wide range of testing services from manual to automation and performance testing services.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-md mb-xl">
-                <div class="col-md-4">
-                    <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="600">
-                        <div class="feature-box-icon">
-                            <i class="icon-screen-desktop icons"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Online licensing</h4>
-                            <p class="mb-lg">Need a online licensing software for your products? Webingate offers the online licensing software to market and offer licensing to your clients.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="600">
-                        <div class="feature-box-icon">
-                            <i class="icon-energy icons"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Web hosting</h4>
-                            <p class="mb-lg">Start your business online with our web site development and hosting services. Webingate provides end-to-end online and web solutions for your business including hosting, domain management, registration services</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="0">
-                        <div class="feature-box-icon">
-                            <i class="icon-user-following icons"></i>
+                        <div class="col-md-3">
+                            <i><img src="UI/img/downloads/support.jpg" alt="" style="width:200px;height:100px;" /></i>
                         </div>
-                        <div class="feature-box-info">
-                            <h4 class="mb-sm">Customer Support</h4>
-                            <p class="mb-lg">Our customer testimonals and feedback speaks of the best services and support provided by Webingate. Let us serve your in the best way possible and enhance your satisfaction.</p>
+                        <div class="col-md-9">
+                            <h4 class="mb-sm">Support</h4>
+                            <p class="mb-lg">Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers...<a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a> </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <hr class="tall">
+            </div>   
         </div>
-    </div>    
- 
+            <hr class="tall">
+       
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="section-container download-content">
+                            <h2 class="mb-2 word-rotator-title">
+                                Book an
+                                <strong class="inverted">
+                                    <span class="word-rotator" data-plugin-options="{'delay': 2000, 'animDelay': 300}">
+                                        <span class="word-rotator-items">
+                                            <span>Get-a-Lyft</span>
+                                            <span>Book Ticket</span>
+                                            <span>Metered Taxi</span>
+                                            <span>Hire Vehicle</span>
+                                            <span>Ambulance</span>
+                                            <span>Towing</span>
+                                        </span>
+                                    </span>
+                                </strong>
+                                from the App
+                            </h2>
+                            <p class="info">
+                                Download the app for exclusive deals and ease of booking
+                            </p>
+                            <div class="download-link-wrapper">
+                                <a href="#" target="_blank" class="download-link">
+                                    <img src="UI/img/downloads/button-get-it-on-google-play.png" style="width:200px;height:50px;margin-left:5px;">
+                                </a>
+                                <a href="#" target="_blank" class="download-link">
+                                    <img src="UI/img/downloads/app-store.png" style="width:200px;height:50px;margin-left:20px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="UI/img/downloads/Google-Maps-Apple.png" class="booking-img" style="width:300px;height:300px;margin-left:100px;">
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <hr class="tall">
+            </div>
+           
+        </section>
+        <section>
+            <div class="container">
+                <h1 class="heading-primary" style="font-size:30px;">Advertisement</h1>                
+                <div class="row" ng-init="GetAdvertisment()">
+                    <div class="col-md-4" ng-repeat="a in advertisement">
+                        <div class="thumbnail">                            
+                                <img src="{{a.Image}}" alt="Lights" style="width:300px;height:200px;">
+                                <div class="caption">
+                                    <h3 style="margin-top:10px;">Title : <strong>{{a.AdvertisementTitle}}</strong></h3>
+                                    <h4 class="price" style="margin-top:-20px;">Price : <strong>${{a.Price}}</strong></h4>
+                                    <h5 class="box-title">Description : <strong>{{a.Description}}</strong></h5>
+                                </div>                                                          
+                        </div>
+                    </div>                   
+                   
+                </div>
+            </div>            
+            <hr class="tall"/>
+        </section>
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="UI/img/downloads/customers-support-486265.png" class="feature-img" style="width:50px;height:50px;margin-left:50px;">
+                            </div>
+                            <div class="col-md-10">
+                                <h2 style="margin-left:30px;font-size:30px;">24/7 Customer Support</h2>
+                                <p style="margin-top:-20px;margin-left:30px;font-size:18px;">
+                                    A dedicated 24x7 customer<br>
+                                    support team always at your<br>
+                                    service to help solve any problem
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="UI/img/downloads/sos.png" class="feature-img" style="width:50px;height:50px;margin-left:80px;">
+                            </div>
+                            <div class="col-md-8">
+                                <h2 style="font-size:30px;">Your Safety First</h2>
+                                <p style="margin-top:-20px;font-size:18px;">
+                                    Keep your loved ones informed<br>
+                                    about your travel routes or call<br>
+                                    emergency services when in need
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="UI/img/downloads/driver-car.jpg" class="feature-img" style="width:50px;height:50px;margin-left:50px;">
+                            </div>
+                            <div class="col-md-9">
+                                <h2 style="font-size:30px;">Top Rated Driver-Partners</h2>
+                                <p style="margin-top:-20px;font-size:18px;">
+                                    All our driver-partners are<br>
+                                    background verified and trained to<br>
+                                    deliver only the best experience
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </section> 
+        
+        <!--Start modal for Email verification-->
+        <div id="exampleModalLong" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle" style="color:DodgerBlue;">Verify Email Address</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">                       
+                        <div class="col-lg-12">
+                            <h2>Enter verification code </h2>
+                            <div class="content">
+                                <div class="cancinfo">Please check your email and enter the email verification code</div>
+                                <font style="padding-top: 10px;color:red" ng-show="codeVerified == 0">
+                                    <h5>
+                                        Invalid code. Please re-enter to verify.
+                                    </h5>
+                                </font>
+                                <div class="row" style="padding-top:15px;padding-bottom:15px">
+
+
+                                    <div class="col-md-10">
+                                        <div class="form-group">
+                                            <label for="inputFirstName" class="col-md-4 control-label">Verificaion code:</label>
+                                            <div class="col-md-7" style="text-align:left"><input id="inputFirstName" type="text" placeholder="E-mail verification code" class="form-control" ng-model="emailAddrCode" /></div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary" ng-click="VerifyEmailAddress();" style="width:70px;height:40px;">Submit</button> 
+                                    </div>
+                                     
+                                </div>
+                                <font style="padding-top: 10px;">
+                                    <h5>
+                                        Note:You will not be able to receive e-tickets and other updates from interbus if the email id is not verified.
+                                        <br />  Did not receive the code/resend verification code? please <a href="Fleetownerrequest.html" style="color:red">
+                                            click here
+                                        </a> to re-send the code
+                                    </h5>
+                                </font>
+                                <div class="form-group mbn">
+                                    <a href="index.html" class="btn btn-warning">
+                                        <i class="fa fa-chevron-circle-left"></i>&nbsp;
+                                        Later
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <!--End modal for Email verification-->       
+    </div>
+
 
     <footer class="short" id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
                     <h4>About PaySmart Portal</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos... <a href="#" class="btn-flat btn-xs">View More <i class="fas fa-arrow-right"></i></a></p>
+                    <p>Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
                     <hr class="light">
                     <div class="row">
                         <div class="col-lg-3">
-                            <h5>Blog</h5>
+                            <h5>Be a part of paysmart</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-full-width.html">Blog Full Width</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-large-image.html">Blog Large Image</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-medium-image.html">Blog Medium Image</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="blog-post.html">Single Post</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Drive with paysmart</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Ride with paysmart</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Attach fleet</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Business owners</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Brand ambassdor</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Ticket agent</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3">
-                            <h5>Pages</h5>
+                            <h5>Services offered</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="page-full-width.html">Full width</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-left-sidebar.html">Left sidebar</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-right-sidebar.html">Right sidebar</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-custom-header.html">Custom Header</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Travel tickets</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Vehicle bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Vehicle hiring</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Ambulance services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Towing services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Train & flight bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Hotel bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Travel cards</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">License based services</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3">
                             <h5>Portfolio</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-2-columns.html">2 Columns</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-3-columns.html">3 Columns</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-4-columns.html">4 Columns</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="portfolio-single-small-slider.html">Single Project</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Online portal</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Admin dashboard</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Customer app</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Business app</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Role based access</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="UI/CommingSoon.html">Travel cards</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3">
-                            <h5>Extra Pages</h5>
+                            <h5>Help & Support</h5>
                             <ul class="list list-icons list-icons-sm">
-                                <li><i class="fas fa-caret-right"></i> <a href="page-team.html">Team</a></li>
-                                <li><i class="fas fa-caret-right"></i> <a href="page-services.html">Services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="page-team.html">Contact us</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="page-services.html">Getting a license</a></li>
                                 <li><i class="fas fa-caret-right"></i> <a href="page-careers.html">Careers</a></li>
                                 <li><i class="fas fa-caret-right"></i> <a href="page-faq.html">FAQ</a></li>
                                 <li><i class="fas fa-caret-right"></i> <a href="sitemap.html">Sitemap</a></li>
@@ -623,7 +1847,7 @@
                     <p class="mb-0">International: (333) 456-6670</p>
                     <p class="mb-0">Fax: (222) 531-8999</p>
                     <ul class="list list-icons mt-4">
-                        <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 1234 Street Name, City Name, Zimbabwe</li>
                         <li><i class="far fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></li>
                     </ul>
                     <ul class="social-icons mt-4">
@@ -631,31 +1855,32 @@
                         <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
                         <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                     </ul>
-                   
-                        <a href="index.html" class="logo">
-    <img height="2" alt="Porto Website Template" class="img-fluid" src="UI/img/apple-appstore-button.jpg">
-</a>
+
+                    <a href="index.html" class="logo">
+                        <img height="2" alt="PaySmart Website Template" class="img-fluid" src="UI/img/downloads/button-get-it-on-google-play.png" style="width:170px;height:60px;margin-top:20px;">
+                        <img height="2" alt="PaySmart Website Template" class="img-fluid" src="UI/img/downloads/app-store.png" style="width:180px;height:70px;margin-top:20px;">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                
+
                 <hr class="light">
-                        <div class="row">
-                            <div class="col-lg-1">
-                                <a href="index.html" class="logo">
-                                    <img alt="Porto Website Template" class="img-fluid" src="UI/img/logo-footer.png">
-                                </a>
-                            </div>
-                            <div class="col-lg-11">
-                                <p>© Copyright 2018. All Rights Reserved.</p>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="index.html" class="logo">
+                            <img alt="PaySmart Website Template" class="img-fluid" src="UI/img/logo-footer.png">
+                        </a>
                     </div>
-              </div>
-</footer>
-    
+                    <div class="col-lg-11">
+                        <p>© Copyright 2018. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- Vendor -->
     <script src="UI/vendor/jquery/jquery.min.js"></script>
@@ -688,6 +1913,10 @@
 
     <!-- Theme Initialization Files -->
     <script src="UI/js/theme.init.js"></script>
+    <script src="UI/js/angular.js"></script>
+    <script src="UI/js/ui-bootstrap-tpls-1.3.3.js"></script>
+    <script src="UI/js/ngStorage.js"></script>
+    <script src="UI/js/index.js"></script>
 
     <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
     <script>

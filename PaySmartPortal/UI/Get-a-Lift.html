@@ -1,0 +1,1267 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>PaySmart Portal</title>
+
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Porto - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">-->
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/fontawesome-all.min.css">
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">-->
+    <link href="vendor/font-awesome/css/fontawesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme-elements.css">
+    <link rel="stylesheet" href="css/theme-blog.css">
+    <link rel="stylesheet" href="css/theme-shop.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
+    <link rel="stylesheet" href="vendor/circle-flip-slideshow/css/component.css">
+
+    <!-- Demo CSS -->
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/default.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="vendor/modernizr/modernizr.min.js"></script>
+    <style>
+        #aad::placeholder {
+    color: black;
+    opacity: 1; /* Firefox */
+}
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="mapCtrl" ng-init="getcurrentloc();">
+    <div class="body">
+        <header id="header" class="header-narrow header-full-width" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 55, 'stickySetTop': '-55px', 'stickyChangeLogo': true}">
+            <div class="header-body">
+                <div class="header-container container">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-row">
+                                <div class="header-logo">
+                                    <a href="../index.html">
+                                        <img alt="PaySmart" width="111" height="94" data-sticky-width="82" data-sticky-height="40" data-sticky-top="33" src="img/logo-big.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-column justify-content-end">
+                            <div class="header-row pt-3">
+                                <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
+                                    <nav class="collapse">
+                                        <ul class="nav nav-pills">
+                                            <li class="dropdown">
+                                                <a class="active" href="DemoRequest.html">
+                                                    GET DEMO NOW
+                                                </a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <img src="img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                                                    <a class="dropdown-item" href="#"><img src="img/blank.gif" class="flag flag-us" alt="English" /> Zimbabwe</a>
+                                                    <a class="dropdown-item" href="#"><img src="img/blank.gif" class="flag flag-es" alt="English" /> Kenya</a>
+                                                    <a class="dropdown-item" href="#"><img src="img/blank.gif" class="flag flag-fr" alt="English" /> South Africa</a>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle active" href="#">
+                                                    Book Now
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="Get-a-Lift.html">Get-a-Lift</a>
+                                                        <a class="dropdown-item" href="MeteredTaxi.html">Metered Taxi</a>
+                                                        <a class="dropdown-item" href="HireVehicle.html">Hire Vehicle</a>
+                                                        <a class="dropdown-item" href="BookTicket.html">Book Ticket</a>
+                                                        <a class="dropdown-item" href="Ambulance.html">Ambulance</a>
+                                                        <a class="dropdown-item" href="Towing.html">Towing</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" href="#">Partner with Us as</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="BrandAmbassador.html">Brand Ambassador</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="BusinessOwner.html">Business Owner</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="DriverRegistration.html">Driver</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="FleetOwner.html">Fleet Owner</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="TicketAgent.html">Ticket Agent</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="VehicleOwner.html">Vehicle Owner</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!--<li class="dropdown" ng-hide="username == 0 || username == null">
+                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                <i class="fas fa-user" href="#"></i> {{username}}
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" href="UI/UserProfile.html">Profile</a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" ng-click="LogoutUser()">Signout</a>
+                                                </li>
+                                            </ul>
+                                        </li>-->
+                                            <li class="dropdown dropdown-mega dropdown-mega-signin signin" id="headerAccount" ng-show="username == 0 || username == null">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    <i class="fas fa-user"></i> Sign In
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <div class="dropdown-mega-content">
+                                                            <div class="row">
+                                                                <div class="col">
+
+                                                                    <div class="signin-form">
+
+                                                                        <span class="dropdown-mega-sub-title">Sign In</span>
+
+                                                                        <form action="/" id="frmSignIn" method="post">
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <label>Username or E-mail Address</label>
+                                                                                    <input type="text" value="" class="form-control" tabindex="1" ng-model="UserName">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <a class="float-right mt-0 p-0" id="headerRecover" href="#">(Lost Password?)</a>
+                                                                                    <label>Password</label>
+                                                                                    <input type="password" value="" class="form-control" tabindex="2" ng-model="Password">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col-lg-6 pl-0">
+                                                                                    <span class="remember-box form-check">
+                                                                                        <label class="form-check-label" for="rememberme">
+                                                                                            <input class="form-check-input mr-2" type="checkbox" id="rememberme" name="rememberme">Remember Me
+                                                                                        </label>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="form-group col-lg-6 pr-0">
+                                                                                    <button type="button" class="btn btn-primary float-right mb-3" ng-click="Signin()">Login</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="sign-up-info">Don't have an account yet? <a href="#" id="headerSignUp" class="p-0 m-0 ml-1">Sign Up</a></p>
+
+                                                                    </div>
+
+                                                                    <div class="signup-form">
+                                                                        <span class="dropdown-mega-sub-title">Create Account</span>
+
+                                                                        <form action="/" id="frmSignUp" method="post">
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>First Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.FirstName" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Last Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.LastName" class="form-control" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>User Name</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.UserName" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Country</label>
+                                                                                    <div class="selector">
+                                                                                        <select class="form-control" ng-options="C.Name for C in initdata.Table track by C.Id" ng-model="register.Country">
+                                                                                            <option value="">Select</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Email</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.Email" class="form-control" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Mobile Number</label>
+                                                                                    <input type="text" value="" placeholder="" ng-model="register.Mobilenumber" class="form-control" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>Password</label>
+                                                                                    <input type="password" value="" class="form-control" ng-model="register.Password" />
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <label>Re-enter Password</label>
+                                                                                    <input type="password" value="" class="form-control" ng-model="register.RePassword" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <br />
+                                                                            <!--<span class="mt-3 mb-3 line-thru text-center text-uppercase">
+                                                                            <span>OR</span>
+                                                                        </span>
+                                                                        <div class="mb-1 text-center">
+                                                                            <a class="btn btn-facebook mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-facebook-f"></i></a>
+                                                                            <a class="btn btn-twitter mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-twitter"></i></a>
+                                                                        </div>-->
+
+                                                                            <div class="form-row">
+                                                                                <div class="col-sm-12">
+                                                                                    <button type="button" value="Create Account" class="btn btn-primary float-right mb-4" ng-click="SaveNew(register)">Submit</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="log-in-info">Already have an account? <a href="#" id="headerSignIn" class="p-0 m-0 ml-1">Log In</a></p>
+                                                                    </div>
+
+                                                                    <div class="recover-form">
+                                                                        <span class="dropdown-mega-sub-title">Reset My Password</span>
+                                                                        <p>Complete the form below to receive an email with the authorization code needed to reset your password.</p>
+
+                                                                        <form action="/" id="frmResetPassword" method="post">
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <label>E-mail Address</label>
+                                                                                    <input type="text" value="" class="form-control form-control-lg">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col">
+                                                                                    <input type="submit" value="Submit" class="btn btn-primary float-right mb-3" data-loading-text="Loading...">
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+
+                                                                        <p class="log-in-info">Already have an account? <a href="#" id="headerRecoverCancel" class="p-0 m-0 ml-1">Log In</a></p>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!--<div class="header-search d-none d-md-block">
+                                <form id="searchForm" action="page-search-results.html" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="q" id="q" placeholder="Search..." required>
+                                        <span class="input-group-append">
+                                            <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>-->
+                            </div>
+
+                            <div class="header-row">
+                                <div class="header-nav">
+                                    <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
+                                        <nav class="collapse">
+                                            <ul class="nav nav-pills" id="mainNav">
+                                                <li class="dropdown">
+                                                    <a class="active" href="../index.html">
+                                                        Home
+                                                    </a>
+                                                </li>
+                                                <!--<li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    Fares/Payments
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/Fares_and_payments.html">Check Fares</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/Recharge.html">Recharge</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/Refund.html">Refund</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/Renewal.html">Renewals</a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/Schedules.html">Schedules</a>
+                                                    </li>
+                                                </ul>
+                                            </li>-->
+
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Drive with us
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Ride with us
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="BrandAmbassador.html">Brand Ambassador</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="BusinessOwner.html">Business Owner</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="DriverRegistration.html">Driver</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="FleetOwner.html">Fleet Owner</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="TicketAgent.html">Ticket Agent</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="VehicleOwner.html">Vehicle Owner</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Travel Tickets
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="Products.html">Products</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <!--<li class="dropdown">
+                                                <a class="dropdown-item dropdown-toggle" href="#">
+                                                    Online Shop
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item" href="UI/Products.html">Products</a>
+                                                    </li>
+                                                </ul>
+                                            </li>-->
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Licenses
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="AdvertisementLicense.html">Advertisement Licence</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="Cards.html">Cards</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="Licenses.html">Fleet Owner Licence</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="Renewal.html">Fleet Owner Renewal Licence</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Cancel/Modify
+                                                    </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="Cancellation.html">Cancel Journey</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item" href="Cancellation.html">Cancel/Modify Ticket</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                                        Contact Us/Help
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="ContactUs.html">Contact Us</a></li>
+                                                        <li><a class="dropdown-item" href="Complaints.html">Trouble Ticket/Complaints</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <ul class="header-social-icons social-icons d-none d-sm-block">
+                                        <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                        <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+                                        <i class="fas fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div role="main" class="main" style="border-top:1px solid grey;">
+            <!--Start Container-->
+            
+            <div class="container-fluid">
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-5" style="display:inline-block; padding:0px; margin:0px;">
+                        <section>                           
+
+                            <!--Start Location Selection-->
+                            <div class="container-fluid" ng-show="selectloc!=null">
+
+                                <div class="row">                                   
+                                    <div class="col-md-12">
+                                        <div class="featured-box featured-box-primary">                                            
+                                                <h4 class="heading-primary text-uppercase mb-3">GET A LYFT</h4>
+                                                <form>
+                                                    <div class="row" ng-click="pickuppoint();">
+                                                        <div class="col-md-2" style="display:inline-block; padding:0px;height:45px; margin:0px;background-color:#e6e6e6;color:grey;font-family:Calibri;margin-left:20px;border-bottom-left-radius:5px;border-top-left-radius:5px;">
+                                                            <label style="margin-top:12px;font-size:13px;">PICKUP</label>
+                                                        </div>
+                                                        <div class="col-md-9" style="display:inline-block; padding:0px; margin:0px;background-color:#e6e6e6;color:black;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;">
+                                                            <input style="background-color:#e6e6e6;color:black;height:45px; margin:0px;border:none;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;text-overflow:ellipsis;"
+                                                                   ng-model="pickupPoint_name"
+                                                                   type="text"
+                                                                   name="pickupPoint"
+                                                                   id="pickname"
+                                                                   class="form-control"
+                                                                   readonly />
+                                                            <!--value="{{pickupPoint.name}}" />-->
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row mtop">
+                                                        <div class="col-md-2" style="display:inline-block; padding:0px;height:45px; margin:0px;background-color:#e6e6e6;color:grey;font-family:Calibri;border-bottom-left-radius:5px;margin-left:20px;border-top-left-radius:5px;">
+                                                            <label style="margin-top:12px;font-size:13px;">DROP</label>
+                                                        </div>
+                                                        <div class="col-md-9" style="display:inline-block; padding:0px; margin:0px;background-color:#e6e6e6;color:black;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;">
+                                                            <input style="background-color:#e6e6e6;color:black;height:45px; margin:0px;border:none;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;text-overflow:ellipsis;"
+                                                                   ng-model="droppoint_name"
+                                                                   type="text"
+                                                                   name="dropPoint"
+                                                                   id="dropPoint"
+                                                                   placeholder="Search for a locality or landmark"
+                                                                   class="form-control"
+                                                                   ng-click="droppoint()" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mtop">
+                                                        <div class="col-md-2" style="display:inline-block; padding:0px;height:45px; margin:0px;background-color:#e6e6e6;color:grey;font-family:Calibri;border-bottom-left-radius:5px;margin-left:20px;border-top-left-radius:5px;">
+                                                            <label style="margin-top:12px;font-size:13px;">WHEN</label>
+                                                        </div>
+                                                        <div class="col-md-9" style="display:inline-block; padding:0px; margin:0px;background-color:#e6e6e6;color:black;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;">
+                                                            <select style="background-color:#e6e6e6;color:black;height:45px; margin:0px;border:none;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;text-overflow:ellipsis;font-family:Arial;font-size:14px;"
+                                                                    type="text" name="dropPoint" placeholder="Search for a locality or landmark" class="form-control"
+                                                                    ng-model="when" ng-change="whenselection();">
+                                                                <option value="">NOW</option>
+                                                                <option value="1">Schedule for later</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>   
+                                                    <div class="row mtop" ng-show="when!=null">
+                                                        <div class="col-md-2" style="display:inline-block; padding:0px;height:45px; margin:0px;background-color:#e6e6e6;color:grey;font-family:Calibri;border-bottom-left-radius:5px;margin-left:20px;border-top-left-radius:5px;">
+                                                            <label style="margin-top:12px;margin-left:10px;font-size:13px;">DEPART</label>
+                                                        </div>
+                                                        <div class="col-md-9" style="display:inline-block; padding:0px; margin:0px;background-color:#e6e6e6;color:black;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;">
+                                                            <!--<select style="background-color:#e6e6e6;color:black;height:45px; margin:0px;border:none;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;text-overflow:ellipsis;"
+                    type="text" name="dropPoint" placeholder="Search for a locality or landmark" class="form-control">
+                <option value="">Today</option>
+                <option value="Later">Tomorrow</option>
+            </select>-->
+                                                            <div class="form-group">
+                                                                <div class='input-group date' id='datetimepicker1'>
+                                                                    <input type='text' class="form-control" />
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row">
+                                                        <div class="col-md-11 mtop" style="margin-top:10px;">
+                                                            <div class="col-md-6" style="display:inline-block;padding:0px;height:45px;font-family:Calibri;">
+                                                                <div class="col-sm-2" style="display:inline-block;padding:0px;">
+                                                                    <input type="checkbox" class="icheckbox_minimal-grey activeCheckbox form-control" ng-model="Active" ng-true-value="1" ng-false-value="0" ng-change="luggagever()">
+                                                                    <!--<input type="checkbox" class="form-control" name="luggage" />-->
+                                                                </div>
+                                                                <div class="col-sm-9" style="display:inline-block;padding:0px;">
+                                                                    <span class="form-control" style="border:0px;">Do You Have Luggage?</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5" style="display:inline-block;padding:0px; margin:0px;height:45px;" ng-show="Active!=0">
+                                                                <input placeholder="if Yes Estimated WEIGHT" class="form-control" type="text" name="luggage_wight" />
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-11">
+                                                            <div class="col-md-6" style="display:inline-block; padding:0px;height:45px; margin:0px;font-family:Calibri;">
+                                                                <span class="form-control" style="border:0px;">More than One Passenger</span>
+                                                            </div>
+                                                            <div class="col-md-5" style="display:inline-block; padding:0px; margin:0px;">
+                                                                <select class="form-control">
+                                                                    <option ng-repeat="r in range" value="{{r}}">{{r}}</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>                                                                                                   
+                                                    <br />
+                                                    <div class="row"></div>
+                                                </form>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!--To Show Grid-->
+                                <div class="mtop">
+
+                                    <span style="margin-bottom:10px;margin-left:10px;"> AVAILABLE RIDES</span>
+                                    <div style="border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-top:12px;margin-left:5px;margin-right:15px;">
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr><td colspan="3">&nbsp;</td></tr>
+                                                <tr ng-click="selecttypevehicle();" ng-repeat="l in listofv">
+                                                    <td class="text-center">
+                                                        <!--<img style="width:10px;height:60px;" src="images/audi_PNG1771.png" />-->
+                                                        <img style="width:30px;height:30px;" src="img/downloads/etios.jpg" /><br />
+                                                        20 min
+                                                    </td>
+                                                    <td class="text-left">
+                                                        <strong style="color:black;font-family:Arial">{{l.VehicleType}}</strong> <br />                                                              
+                                                        Get an SUV at your door step
+                                                    </td>
+                                                    <td class="text-center"><b style="color:black;">&nbsp;</b> <label style="color:darkgrey"> <img style="width:15px;height:15px;" src="images/arrow-right-01-512.png" /></label> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><hr /></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <img style="width:30px;height:30px;" src="img/downloads/etios.jpg" /><br />
+                                                        20 min
+                                                    </td>
+                                                    <td class="text-left">
+                                                        <strong style="color:black;font-family:Arial">Mini</strong> <br />
+                                                        Get an MINI at your door step
+                                                    </td>
+                                                    <td class="text-center"><b style="color:black;">Rs.41-Rs.43 &nbsp;</b> <label style="color:darkgrey"> <img style="width:15px;height:15px;" src="images/arrow-right-01-512.png" /></label> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><hr /></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <img style="width:30px;height:30px;" src="img/downloads/etios.jpg" /><br />
+                                                        20 min
+                                                    </td>
+                                                    <td class="text-left">
+                                                        <strong style="color:black;font-family:Arial">Prime Sedan</strong> <br />
+                                                        Get an Priem at your door step
+                                                    </td>
+                                                    <td class="text-center"><b style="color:black;">Rs.51-Rs.63 &nbsp;</b> <label style="color:darkgrey"> <img style="width:15px;height:15px;" src="images/arrow-right-01-512.png" /></label> </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <!--End Grid-->
+
+                                
+                                
+                            </div>
+                            <!--End Location Selection-->
+
+                            
+
+                            <!-- StartEdit Pickup from Location-->
+                            <div class="container-fluid" ng-show="editpickup!=null">
+                                <div class="row" style="align-content:center;justify-content:center;color:#a6a6a6;align-content:center;justify-content:center;color:black;">
+                                    <div class="col-md-2 pull-left"  ng-click="goBackpickup()"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                                    <div class="col-md-8" style="text-align:center;"><strong>Edit Pickup Location </strong></div>
+                                    <div class="col-md-2"><img src="img/location-512.png" style="width:20px;height:20px;margin-top:10px;margin-left:18px;" title="For Current Location" ng-click="getcurrentloc1();" /></div>
+                                </div>
+                                <div class="row mtop" style="margin-top:15px;">
+                                    <div class="col-xl-1" style="display:inline-block; padding:0px;margin:0px;font-family:Calibri;margin-left:15px;border-bottom-left-radius:5px;border-top-left-radius:5px; border-left:1px solid #e6e6e6;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <!--<label style="margin-top:12px;margin-left:25px;font-size:13px;">
+                                            <img title="Edit Pickup location" style="height:25px;width:30px;" src="img/download.jpg" />
+                                        </label>-->
+                                        <i class="fa fa-search" style="padding:13px 10px 12px 10px;"></i>
+                                    </div>
+                                    
+                                    <div class="col-xl-10" style="display:inline-block; padding:0px; margin:0px;border:none;border-bottom-right-radius:5px;border-top-right-radius:5px;border-top:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <div class="col-lg-10" style="display:inline-block; padding:0px; margin:0px;border:none;">
+                                            <input style="margin:0px;border:none;color:black;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;font-size:15px;"
+                                                   ng-model="pickupPoint_name1"
+                                                   type="text"
+                                                   name="pickupPoint"
+                                                   id="aad"
+                                                   onfocus="this.placeholder = ''"
+                                                   class="form-control" />
+                                            <!--ng-click="EditPickup()"--> 
+                                        </div>
+                                        <div class="col-xs-1" style="display:inline-block; padding:0px; margin:0px;border:none;" ng-click="goBackpickup()">
+                                            <i class="fa fa-check" aria-hidden="true" style="height:45px;color:dodgerblue;padding-top:13px;margin-left:35px;" title="GoBack Booking page"></i>
+                                            </div>
+                                    </div>
+                                    <!--<img src="img/location-512.png" style="width:20px;height:20px;margin-top:10px;" title="For Current Location" ng-click="getcurrentloc1();" />-->
+                                    </div>
+
+
+                                        <!--<div class="row" style="display:none;">
+                                    <div id="full-width-content" class="col-md-12">
+                                        <div class="main well">
+                                            <div class="large" data-set="status-map">
+                                                <div class="moving-source-order">
+                                                    <div class="status-map-wrapper map-wrapper status-page">
+                                                        <div>
+
+                                                            <div style="overflow: hidden; height: 400px; width: 100%;">
+                                                                <div id="dvMapt" style="width: 100%; height: 400px;border:0px;margin:0px;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>-->
+                                                 <!--<div class="col-md-1" style="display:inline-block; padding:0px;height:45px;border:0px; margin:0px;font-family:Calibri;margin-left:20px;border-bottom-left-radius:5px;border-top-left-radius:5px;border-right:none;">
+                                        <i class="fa fa-search form-control"></i>
+                                    </div>-->
+                                        <!--<div class="col-md-12" style="display:inline-block;padding:0px; margin:0px;border:none;margin-top:10px;display:none;">
+                                        <input type="search" id="aad" style="text-overflow:ellipsis;" placeholder="Enter a location" onfocus="this.placeholder = ''" class="form-control" />
+                                        </div>-->
+                                        <!--<div style="display:inline-block; padding:0px; margin:0px;border:none;margin-left:20px;display:none">
+                                            <i class="fa fa-search" style="color:gray;margin-top:15px;"></i>
+                                        </div>-->
+                                        <!--<div style="display:inline-block; padding:0px; margin:0px;border:none;display:none;">
+                                            <input type="search" id="aad" style="width: 500px;height:40px;margin-left:15px;border-top:1px solid #42c2f4;border-left:1px solid #42c2f4;border-right:1px solid #42c2f4;border-top-right-radius:5px;border-top-left-radius:5px;text-overflow:ellipsis;" placeholder="Enter a location" onfocus="this.placeholder = ''" class="form-control" />
+                                        </div>-->
+                                    
+                                <div class="row">
+                                    <div id="full-width-content" class="col-md-12">
+                                        <div class="main well">
+                                            <div class="large" data-set="status-map">
+                                                <div class="moving-source-order">
+                                                    <div class="status-map-wrapper map-wrapper status-page">
+                                                        <div>
+                                                            <div style='overflow: hidden; height: 400px; width: 100%;margin-right:100px;padding-right:17px;'>
+                                                                <div id="dvMap" style="width: 100%; height: 400px;border:0px;margin:0px;">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="col-lg-12 form-control" >
+                                    
+                                    <input class="form-control col-md-8" style="border:0px;" type="button" id="curr" ng-click="getcurrentloc1();" value="Current Location" />
+                                </div>-->
+                                <!-- EndEdit from Location-->
+                            </div>
+                            <!--Start Edit drop location-->
+                            <div class="container-fluid" ng-show="editdrop!=null" style="align-content:center;justify-content:center;">
+                                <div class="row" style="align-content:center;justify-content:center;color:black;font-size:14px;">
+                                    <div class="col-md-4" ng-click="goBackdrop()"><i class="fa fa-arrow-left" aria-hidden="true" style="margin-left:5px;"></i></div><div class="col-md-8"><strong>Select Drop Location </strong></div> 
+                                </div>
+                                <div class="row mtop" style="margin-top:15px;">
+                                    <div class="col-xl-1" style="display:inline-block; padding:0px;margin:0px;font-family:Calibri;margin-left:15px;border-bottom-left-radius:5px;border-top-left-radius:5px; border-left:1px solid #e6e6e6;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <i class="fa fa-search" style="padding:13px 10px 12px 10px;"></i>
+                                    </div>
+
+                                    <div class="col-xl-10" style="display:inline-block; padding:0px; margin:0px;border:none;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-top-right-radius:5px;border-bottom-left-radius:5px;">
+                                        <div class="col-lg-10" style="display:inline-block; padding:0px; margin:0px;border:none;">
+                                            <input style="margin:0px;border:none;color:black;font-family:Arial;font-size:15px;text-overflow:ellipsis;"
+                                                   type="text"
+                                                   name="pickupPoint"
+                                                   id="edrop"
+                                                   onfocus="this.placeholder = ''"
+                                                   placeholder="Enter Locaiton"
+                                                   class="form-control" />
+                                        </div>
+                                        <div class="col-xs-1" style="display:inline-block; padding:0px; margin:0px;border:none;" ng-click="goBackdrop()">
+                                            <i  class="fa fa-check" aria-hidden="true" style="height:45px;color:dodgerblue;padding-top:13px;margin-left:35px;" title="GoBack Booking page"></i>
+                                            <!--ng-click="EditPickup()"-->
+                                        </div>
+                                        </div>
+                                    <!--<div class="col-xs-1 col-xl-1"  style="display:inline-block; padding:0px;margin:0px;margin-right:5px;border-left:0px;" ng-click="goBackdrop()">
+                                        <i ng-click="goBackdrop()" class="fa fa-check" aria-hidden="true" style="height:45px;color:dodgerblue;padding-top:13px;margin-left:5px;" title="GoBack Booking page"></i>
+                                        
+                                    </div>-->
+                                </div>
+
+
+                                <div class="row" style="margin-top:20px;display:none">
+                                    <div class="col-md-2" style="display:inline-block; padding:0px;height:45px; margin:0px;font-family:Calibri;margin-left:20px;border-bottom-left-radius:5px;border-top-left-radius:5px; border-left:1px solid #e6e6e6;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <label style="margin-top:12px;margin-left:25px;font-size:13px;"><img title="Edit Pickup location" style="height:25px;width:30px;" src="img/download.jpg" /></label>
+                                    </div>
+                                    <div class="col-md-9" style="display:inline-block; padding:0px; margin:0px;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;border-top:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <input style="height:40px; margin:0px;border:none;color:black;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;font-size:15px;"    class="form-control"/>
+                                                                                       <!--vs-google-autocomplete
+                                                                                       vs-autocomplete-validator
+                                                                                       ng-model="dropPoint_edit.place.name"
+                                                                                       vs-place="dropPoint_edit.place"
+                                                                                       vs-place-id="dropPoint_edit.components.placeId"
+                                                                                       vs-street-number="dropPoint_edit.components.streetNumber"
+                                                                                       vs-street="dropPoint_edit.components.street"
+                                                                                       vs-city="dropPoint_edit.components.city"
+                                                                                       vs-state="dropPoint_edit.components.state"
+                                                                                       vs-country-short="dropPoint_edit.components.countryCode"
+                                                                                       vs-country="dropPoint_edit.components.country"
+                                                                                       vs-district="dropPoint_edit.components.district"
+                                                                                       vs-post-code="dropPoint_edit.components.postCode"
+                                                                                       vs-latitude="dropPoint_edit.components.location.lat"
+                                                                                       vs-longitude="dropPoint_edit.components.location.long"
+                                                                                       type="text"
+                                                                                       name="dropPoint_edit"
+                                                                                       id="editdrop"
+                                                                                       class="form-control"
+                                                                                        value="{{dropPoint_edit.name}}"
+                                                                                       placeholder="Enter Address"
+                                                                                        ng-click="droppoint1();-->"
+                                               
+                                   </div>
+                                    
+                                </div>
+                                <div class="col-md-12" style="display:inline-block;padding:0px; margin:0px;border:none;margin-top:10px;display:none;">
+                                    <input type="search"  style="text-overflow:ellipsis;" placeholder="Enter a location" onfocus="this.placeholder = ''" class="form-control" />
+                                </div>
+                                <div class="row">
+                                    <!--map start-->
+                                    <div     class="col-md-12">
+                                        <div class="main well">
+                                            <div class="large" data-set="status-map">
+                                                <div class="moving-source-order">
+                                                    <div class="status-map-wrapper map-wrapper status-page">
+                                                        <div>
+
+
+                                                            <div style='overflow: hidden; height: 400px; width: 100%;margin-right:100px;padding-right:17px;'>
+                                                                <div id="dvMap1" style="width: 100%; height: 400px;border:0px;margin:0px;">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!--map end-->
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            <!--End Edit drop location-->
+                            <!--End Location Selection-->
+
+
+                            <!--Start Select type Details-->
+                            <div class="container"  ng-show="selcttvehicle!=null">
+                                <div class="row"  ng-repeat="l in listofv">
+            <div class="col-md-4" ng-click="gobackselecttypevehicle()"><i class="fa fa-arrow-left" aria-hidden="true"  style="margin-left:5px;"></i></div>
+            <div class="col-md-2" style="align-content:center;justify-content:center;"><img style="width:30px;height:30px;" src="img/downloads/etios.jpg" /></div>
+            <div class="col-md-4 pull-left"> <strong style="color:black;">{{l.VehicleType}}</strong><br />20 min</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="featured-box featured-box-primary">                                           
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-md-2" style="display:inline-block; padding:0px;height:45px; margin:0px;background-color:#e6e6e6;color:grey;font-family:Calibri;margin-left:20px;border-bottom-left-radius:5px;border-top-left-radius:5px;">
+                                                        <label style="margin-top:12px;font-size:13px;">PICKUP</label>
+                                                    </div>
+                                                    <div class="col-md-9" style="display:inline-block; padding:0px; margin:0px;background-color:#e6e6e6;color:black;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;">
+                                                        <input style="background-color:#e6e6e6;color:black;height:45px; margin:0px;border:none;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;text-overflow:ellipsis;"
+                                                               ng-model="pickupPoint_name"
+                                                               type="text"
+                                                               name="pickupPoint"
+                                                               class="form-control"
+                                                               id="selectpickuppoint"
+                                                               readonly />
+                                                        <!--value="{{pickupPoint.name}}" />-->
+                                                    </div>
+
+                                                </div>
+                                                <div class="row mtop">
+                                                    <div class="col-md-2" style="display:inline-block; padding:0px;height:45px; margin:0px;background-color:#e6e6e6;color:grey;font-family:Calibri;border-bottom-left-radius:5px;margin-left:20px;border-top-left-radius:5px;">
+                                                        <label style="margin-top:12px;font-size:13px;">DROP</label>
+                                                    </div>
+                                                    <div class="col-md-9" style="display:inline-block; padding:0px; margin:0px;background-color:#e6e6e6;color:black;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;">
+                                                        <input style="background-color:#e6e6e6;color:black;height:45px; margin:0px;border:none;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;text-overflow:ellipsis;"
+                                                               ng-model="droppoint_name"
+                                                               type="text"
+                                                               name="dropPoint"
+                                                               placeholder="Search for a locality or landmark"
+                                                               class="form-control"
+                                                               />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4" style="display:inline-block; padding:0px;margin:0px;font-family:Calibri;margin-left:5px;">
+                                                        <label style="margin-top:12px;font-size:13px;margin-left:18px;">Fare</label>
+                                                        <span style="margin:0px;border:none;font-family:Arial;font-size:15px;font-family:Calibri;">
+                                                            <b style="color:black;">&nbsp;<span style="font-size:16px;">&#x20b9;31 - &#x20b9;32</span></b></span>
+</div>
+                                                    <div class="col-md-4" style="display:inline-block; padding:0px; margin:0px;border:none;margin-top:10px;">
+                                                        <label style="margin-left:20px;">Total Fare</label>
+                                                        <span style="margin:0px;border:none;font-family:Arial;font-size:15px;font-family:Calibri;">
+                                                            <b style="color:black;">&nbsp;<span style="font-size:16px;">&#x20b9;31 - &#x20b9;32</span></b>&nbsp;&nbsp;
+                                                            
+                                                            
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row mtop">
+                                                    <div class="col-md-6">
+                                                        <!--<div class="col-md-3" style="display:inline-block; padding:0px;height:45px; margin:0px;font-family:Calibri;border-bottom-left-radius:5px;border-top-left-radius:5px; border-left:1px solid #e6e6e6;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                <label style="margin-top:10px;margin-left:5px;font-size:13px;">Select Payment Mode</label>
+            </div>-->
+                                                        <!--<div class="col-md-12" style="display:inline-block; padding:0px; margin:0px;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;border-top:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">-->
+
+                                                        <div class="col-sm-2" style="display:inline-block; padding:0px; margin:0px;margin-left:5px;">
+                                                            <label style="font-size:13px;font-family:Calibri;margin-top:10px;margin-left:18px;">Mode</label>
+                                                        </div>
+                                                        <div class="col-sm-9" style="display:inline-block; padding:0px; margin:0px;">
+                                                            <Select style="width:150px;margin:0px;color:black;font-family:Arial;font-size:15px;margin-top:-20px;margin-left:16px;font-size:13px;font-family:Calibri;margin-left:55px;"
+                                                                    class="form-control"
+                                                                    ng-model="modepay"
+                                                                    ng-change="selectmodepay()">
+                                                                <option value="">Select Payment</option>
+                                                                <option value="1">Cash</option>
+                                                                <option value="2">Net Bankging</option>
+                                                            </Select>
+                                                        </div>
+                                                        <!--</div>-->
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-sm-2" style="display:inline-block; padding:0px; margin:0px;margin-left:4px;">
+                                                            <label style="font-size:13px;font-family:Calibri;margin-top:10px;">Mobile</label>
+                                                        </div>
+                                                        <div class="col-sm-9" style="display:inline-block; padding:0px; margin:0px;border-right:1px solid #e6e6e6;border-bottom-right-radius:5px;">
+                                                            <input style="height:40px; margin:0px;color:black;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;font-size:15px;border-right:1px solid #e6e6e6;"
+                                                                   ng-model="phoneno"
+                                                                   type="text"
+                                                                   name="pickupPoint"
+                                                                   class="form-control"
+                                                                   placeholder="Enter Mobile Number" />
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                                <div class="row" style="margin-top:15px;">
+                                                    <!--<button class="btn btn-primary form-control" style="text-align:center;margin-left:20px;margin-right:30px;display:none;" ng-click="confirmdetails();">Continue</button>-->
+                                                    <button class="btn btn-primary form-control" style="text-align:center;margin-left:22px;margin-right:30px;" ng-click="Booking();">Continue</button>
+                                                </div>
+                                                <br/>
+                                                <div class="row"></div>
+                                            </form>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                                <!--<div class="row mtop">
+                                    <div class="col-md-3" style="display:inline-block; padding:0px;height:45px; margin:0px;font-family:Calibri;margin-left:20px;border-bottom-left-radius:5px;border-top-left-radius:5px; border-left:1px solid #e6e6e6;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <label style="margin-top:12px;margin-left:5px;font-size:13px;">Enter Mobile Number</label>
+                                    </div>
+                                    <div class="col-md-8" style="display:inline-block; padding:0px; margin:0px;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;border-top:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <input style="height:40px; margin:0px;border:none;color:black;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;font-size:15px;"
+                                               ng-model="phoneno"
+                                               type="text"
+                                               name="pickupPoint"
+                                               class="form-control"
+                                               placeholder="Enter Mobile Number" />
+                                      
+                                    </div>
+                                </div>--> 
+                                
+                                <!--<div class="row" >
+                                    <div class="col-md-11" style="border-right:1px solid #e6e6e6;border-top:1px solid #e6e6e6;margin-left:18px;border-left:1px solid 1px solid #e6e6e6;">
+                                    </div>
+                                </div>--> 
+                               
+                                    <div class="row" style="display:none;">
+                                        <div class="col-md-11 mtop" style="margin-left:18px;border-top-left-radius:5px;border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6;">
+                                            <div class="col-md-6" style="display:inline-block; padding:0px;height:45px; margin:0px;font-family:Calibri;border-bottom-left-radius:5px;border-top-left-radius:5px;">
+                                                <div class="col-sm-2" style="display:inline-block; padding:0px; margin:0px;margin-left:4px;">
+                                                    <input type="checkbox" style="margin-left:15px;"  class="icheckbox_minimal-grey activeCheckbox form-control" ng-model="Active" ng-true-value="1" ng-false-value="0" ng-change="luggagever()">
+                                                    <!--<input type="checkbox" class="form-control" name="luggage" />-->
+                                                </div>
+                                                <div class="col-sm-9" style="display:inline-block;border:0px;; padding:0px; margin:0px;">
+                                                    <span class="form-control" style="border:0px;">Do You Have Luggage?</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5" style="display:inline-block; padding:0px; margin:0px;border:none;height:45px;" ng-show="Active!=0">
+                                                <input placeholder="if Yes Estimated WEIGHT" class="form-control" type="text" name="luggage_wight" />
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="row" style="display:none;">
+                                        <div class="col-md-11" style="border-bottom:1px solid #e6e6e6;margin-left:18px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6;">
+                                            <div class="col-md-6" style="display:inline-block; padding:0px;height:45px; margin:0px;font-family:Calibri;border-bottom-left-radius:5px;border-top-left-radius:5px;border-right:1px solid #e6e6e6;border-left:1px solid #e6e6e6;">
+                                                <span class="form-control" style="border:0px;margin-left:23px;">More than One Passenger</span>
+                                            </div>
+                                            <div class="col-md-5" style="display:inline-block; padding:0px; margin:0px;border:none;height:45px;border-right:1px solid #e6e6e6;">
+                                                <select class="form-control">
+                                                    <option ng-repeat="r in range" value="{{r}}">{{r}}</option>
+                                                </select>
+                                                <!--<input placeholder="if Yes Estimated WEIGHT" class="form-control" type="text" name="luggage_wight" />-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                
+                               
+                                <div class="row" style="margin-top:-10px;">
+                                    <div class="container col-md-12">
+                                            <div data-set="status-map">
+                                                <div class="moving-source-order">
+                                                    <div class="status-map-wrapper map-wrapper status-page">
+                                                        <div class="tab-content">
+
+
+                                                            <div style='overflow: hidden; height: 400px; width: 100%;'>
+                                                                <div id='map1' style='height: 400px; width:100% ;'>
+                                                                   
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <!--<div id="directionsList" ng-show="directions"></div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <!--map end-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Select type details-->
+
+                            <!-- Start Confirm Detais-->
+                            <div class="aside" ng-show="confirmd!=null">
+                                <div class="row" style="align-content:center;justify-content:center;">
+                                    <div class="col-md-4"><i class="fa fa-arrow-left" aria-hidden="true" ng-click="goBackconfirm()" style="margin-left:5px;"></i></div><div class="col-md-8"><strong style="color:#a6a6a6;font-size:18px;">Confirm Booking </strong></div>
+                                    <br />
+                                    Enter the OTP sent to your mobile &nbsp;{{phoneno}}
+                                </div>
+                                    
+                                <div class="row mtop" style="margin-top:15px;">
+                                    <div class="col-md-3" style="display:inline-block; padding:0px;height:45px; margin:0px;font-family:Calibri;margin-left:20px;border-bottom-left-radius:5px;border-top-left-radius:5px; border-left:1px solid #e6e6e6;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <label style="margin-top:12px;margin-left:25px;font-size:13px;">Enter OTP</label>
+                                    </div>
+                                    <div class="col-md-5" style="display:inline-block; padding:0px; margin:0px;border:none;height:45px;border-bottom-right-radius:5px;border-top-right-radius:5px;border-top:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
+                                        <input style="height:40px; margin:0px;border:none;color:black;font-family:Arial;border-bottom-right-radius:5px;border-top-right-radius:5px;font-size:15px;"
+                                               ng-model="OTP"
+                                               type="text"
+                                               name="pickupPoint"
+                                               
+                                               class="form-control"
+                                               placeholder="OTP" />
+                                        <!--value="{{pickupPoint.name}}" />-->
+                                    </div>
+                                    <div class="col-md-3"  style="display:inline-block; padding:0px; margin:0px;border:none;">
+                                        <button class="btn btn-primary form-control" type="button" ng-click="Bookingconfirmation();"> Submit</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- End Confirm Detais-->
+
+                            <!--Begin Vehicle Confirmation-->
+                            <div class="aside" ng-show="bookdd!=null">
+                                <div class="row" style="align-content:center;justify-content:center;">
+                                    <div class="col-md-4"><i class="fa fa-arrow-left" aria-hidden="true" ng-click="goBackvconfirm()" style="margin-left:5px;"></i></div><div class="col-md-8"><strong style="color:#a6a6a6;font-size:14px;font-family:Arial;color:black;">Vehicle Confirmation</strong></div>
+                                </div>
+                                <div class="row">
+                                    <div id="full-width-content" class="col-md-12">
+                                        <div class="main well">
+                                            <div class="large" data-set="status-map" style="margin-left:15px;">
+                                                <div class="moving-source-order">
+                                                    <div class="status-map-wrapper map-wrapper status-page">
+                                                        <div>
+                                                            <div style='overflow: hidden; height: 400px; width: 100%;margin-right:100px;padding-right:36px;'>
+                                                                <div id="maptt" style="width: 100%; height: 400px;border:0px;margin:0px;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <div class="input-group mb-3" style="margin-left:15px;">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1" style="font-size:13px;">Driver Mobile Number</span>
+                                            </div>
+                                            <input type="text" class="form-control" ng-model="bookd.CustomerPhoneNo" placeholder="Mobile Number" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <div class="input-group mb-3" style="margin-left:15px;margin-top:-5px;">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1" style="font-size:13px;">Vehicle Number:</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Vehicle Number" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                
+                                <!--End Vehicle Confirmation-->
+</section>
+                    </div>
+                    <div class="col-md-7" style="display:inline-block; padding:0px; margin:0px;">
+                        <img src="img/mobile_264416834.jpg" style="height:80%;width:100%" />
+                    </div>
+                </div>
+            </div>
+            </div>
+           
+        </div>
+    <footer class="short" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h4>About PaySmart Portal</h4>
+                    <p>Paysmart is a suite of online and mobile based solutions to cater to every travel need and includes features such as on demand cab bookings, vehicle hiring, travel ticket bookings, advance bookings, metered taxis, train, flight, hotel bookings and much more. Paysmart supports easy and convienient payments through various channels such as mobile money, ewallet, netbanking, card payments, QR code based payments, person to person transfers... <a href="#" class="btn-flat btn-xs">know More <i class="fas fa-arrow-right"></i></a></p>
+                    <hr class="light">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h5>Be a part of paysmart</h5>
+                            <ul class="list list-icons list-icons-sm">
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Drive with paysmart</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Ride with paysmart</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Attach fleet</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Business owners</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Brand ambassdor</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Ticket agent</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5>Services offered</h5>
+                            <ul class="list list-icons list-icons-sm">
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Travel tickets</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Vehicle bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Vehicle hiring</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Ambulance services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Towing services</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Train & flight bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Hotel bookings</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Travel cards</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">License based services</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5>Portfolio</h5>
+                            <ul class="list list-icons list-icons-sm">
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Online portal</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Admin dashboard</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Customer app</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Business app</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Role based access</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="CommingSoon.html">Travel cards</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5>Help & Support</h5>
+                            <ul class="list list-icons list-icons-sm">
+                                <li><i class="fas fa-caret-right"></i> <a href="page-team.html">Contact us</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="page-services.html">Getting a license</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="page-careers.html">Careers</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="page-faq.html">FAQ</a></li>
+                                <li><i class="fas fa-caret-right"></i> <a href="sitemap.html">Sitemap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-2">Contact Us</h5>
+                    <span class="phone">(800) 123-4567</span>
+                    <p class="mb-0">International: (333) 456-6670</p>
+                    <p class="mb-0">Fax: (222) 531-8999</p>
+                    <ul class="list list-icons mt-4">
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 1234 Street Name, City Name, Zimbabwe</li>
+                        <li><i class="far fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></li>
+                    </ul>
+                    <ul class="social-icons mt-4">
+                        <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+
+                    <a href="../index.html" class="logo">
+                        <img height="2" alt="PaySmart Website Template" class="img-fluid" src="img/downloads/button-get-it-on-google-play.png" style="width:170px;height:60px;margin-top:20px;">
+                        <img height="2" alt="PaySmart Website Template" class="img-fluid" src="img/downloads/app-store.png" style="width:180px;height:70px;margin-top:20px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+
+                <hr class="light">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="../index.html" class="logo">
+                            <img alt="PaySmart Website Template" class="img-fluid" src="img/logo-footer.png">
+                        </a>
+                    </div>
+                    <div class="col-lg-11">
+                        <p>© Copyright 2018. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Vendor -->
+    <script src="vendor/jquery/jquery.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
+    <script src="vendor/popper/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="vendor/common/common.min.js"></script>
+    <script src="vendor/jquery.validation/jquery.validation.min.js"></script>
+    <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendor/vide/vide.min.js"></script>
+
+    <script src="js/theme.js"></script>
+
+    <script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
+    <!--<script src="js/views/view.home.js"></script>-->
+    
+    <!-- Theme Custom -->
+    <script src="js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="js/theme.init.js"></script>
+    <script src="js/angular.js"></script>
+    <!--<script src="js/angular-message.js"></script>
+    <script src="js/ngAutocomplete.js"></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvjzroTvKlmWDxJn2ZCNvv_12jGA6XadU&libraries=places"></script>
+    <script data-require="lodash-underscore@*" data-semver="2.4.1" src="https://rawgit.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
+    <script data-require="angular-google-maps@*" data-semver="1.1.4" src="https://rawgit.com/nlaplante/angular-google-maps/1.1.4/dist/angular-google-maps.min.js"></script>
+    <script src="js/maps/vs-google-autocomplete.js"></script>
+    <script src="js/maps/vs-autocomplete-validator.js"></script>
+   
+    <!-- validator for autocomplete -->
+    <script src="js/Get-a-Lift.js"></script>
+    <script>
+        var SearchPlaces = new google.maps.places.SearchBox(document.getElementById('aad'));
+        google.maps.event.addListener(SearchPlaces, 'places_changed', function () {
+            var places = SearchBox.getPlaces();
+            var bounds = new google.maps.LatLngBounds();
+            var i, place;
+            for (i = 0; place = places[i]; i++) {
+                bounds.extend(place.geometry.location);
+                marker.setPosition(place.geometry.location);
+            }
+            map.fitBounds(bounds);
+            map.setZoom(15);
+        });
+    </script>
+    
+    <!--<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+    </script>-->
+</body>
+</html>
